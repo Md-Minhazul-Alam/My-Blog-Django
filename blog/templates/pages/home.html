@@ -1,0 +1,374 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+ <!-- Slider -->
+ <section class="slider">
+    <div id="carouselExampleCaptions" class="carousel slide container">
+       <div class="carousel-indicators">
+          <button
+             type="button"
+             data-bs-target="#carouselExampleCaptions"
+             data-bs-slide-to="0"
+             class="active"
+             aria-current="true"
+             aria-label="Slide 1"
+             ></button>
+          <button
+             type="button"
+             data-bs-target="#carouselExampleCaptions"
+             data-bs-slide-to="1"
+             aria-label="Slide 2"
+             ></button>
+          <button
+             type="button"
+             data-bs-target="#carouselExampleCaptions"
+             data-bs-slide-to="2"
+             aria-label="Slide 3"
+             ></button>
+       </div>
+       <div class="carousel-inner">
+          <div class="carousel-item active">
+             <img
+                src="https://images.pexels.com/photos/46160/field-clouds-sky-earth-46160.jpeg?_gl=1*vyyb37*_ga*MTk4NjE3NzkyLjE3NTA0MTA4MjU.*_ga_8JE65Q40S6*czE3NTQ0MTUzNjEkbzQkZzEkdDE3NTQ0MTUzNzkkajQyJGwwJGgw"
+                class="d-block w-100"
+                alt="..."
+                />
+             <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>
+                   Some representative placeholder content for the first slide.
+                </p>
+             </div>
+          </div>
+          <div class="carousel-item">
+             <img
+                src="https://images.pexels.com/photos/2101187/pexels-photo-2101187.jpeg?_gl=1*10cl1gh*_ga*MTk4NjE3NzkyLjE3NTA0MTA4MjU.*_ga_8JE65Q40S6*czE3NTQ0MTUzNjEkbzQkZzEkdDE3NTQ0MTU0NzQkajI1JGwwJGgw"
+                class="d-block w-100"
+                alt="..."
+                />
+             <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>
+                   Some representative placeholder content for the second slide.
+                </p>
+             </div>
+          </div>
+          <div class="carousel-item">
+             <img
+                src="https://images.pexels.com/photos/1263986/pexels-photo-1263986.jpeg?_gl=1*tzn8n0*_ga*MTk4NjE3NzkyLjE3NTA0MTA4MjU.*_ga_8JE65Q40S6*czE3NTQ0MTUzNjEkbzQkZzEkdDE3NTQ0MTU1MjckajUxJGwwJGgw"
+                class="d-block w-100"
+                alt="..."
+                />
+             <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>
+                   Some representative placeholder content for the third slide.
+                </p>
+             </div>
+          </div>
+       </div>
+       <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev"
+          >
+       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+       <span class="visually-hidden">Previous</span>
+       </button>
+       <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next"
+          >
+       <span class="carousel-control-next-icon" aria-hidden="true"></span>
+       <span class="visually-hidden">Next</span>
+       </button>
+    </div>
+ </section>
+ <!-- Main Content -->
+ <main class="content">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-8">
+             <!-- Blog Section -->
+             <section class="blog-section border-bottom border-dark mb-4">
+                <h3 class="blog-category-title">Politics</h3>
+                <div class="row">
+                   <div class="col-md-6">
+                      <article class="blog-category-article">
+                         <div class="blog-image">
+                            <img
+                               src="https://ramjas.du.ac.in/college/web/dept/political_science.jpg"
+                               alt=""
+                               />
+                         </div>
+                         <div class="blog-content">
+                            <h3 class="mb-3">
+                               Voters share the economic impacts of Trump’s megabill in
+                               battleground Arizona
+                            </h3>
+                            <p>
+                               Tucson, Arizona — Opening a new restaurant is always a
+                               risk, but this one even more so: It’s a scorching summer
+                               in the Arizona desert, meat prices are up and the
+                               economy is unpredictable.
+                            </p>
+                            <a class="blog-details" href="#">Read More....</a>
+                         </div>
+                      </article>
+                   </div>
+                   <div class="col-md-6">
+                      <div class="blog-card d-flex mb-4">
+                         <div class="blog-card-image">
+                            <img
+                               src="https://thumbs.dreamstime.com/b/news-microphone-air-vertical-21448290.jpg"
+                               alt=""
+                               />
+                         </div>
+                         <div class="blog-info ms-3">
+                            <h5 class="mb-3">Breaking News</h5>
+                            <p>
+                               As the largest Firehawk fleet in the world, these
+                               aircraft are a critical tool in Cal Fire’s mission to
+                               respond quickly, operate safely, and contain wildfires
+                               before they grow.
+                            </p>
+                            <a class="blog-details" href="#">Read More....</a>
+                         </div>
+                      </div>
+                      <div class="blog-card d-flex mb-4">
+                         <div class="blog-card-image">
+                            <img
+                               src="https://thumbs.dreamstime.com/b/news-microphone-air-vertical-21448290.jpg"
+                               alt=""
+                               />
+                         </div>
+                         <div class="blog-info ms-3">
+                            <h5 class="mb-3">Breaking News</h5>
+                            <p>
+                               As the largest Firehawk fleet in the world, these
+                               aircraft are a critical tool in Cal Fire’s mission to
+                               respond quickly, operate safely, and contain wildfires
+                               before they grow.
+                            </p>
+                            <a class="blog-details" href="#">Read More....</a>
+                         </div>
+                      </div>
+                      <div class="blog-card d-flex mb-4">
+                         <div class="blog-card-image">
+                            <img
+                               src="https://thumbs.dreamstime.com/b/news-microphone-air-vertical-21448290.jpg"
+                               alt=""
+                               />
+                         </div>
+                         <div class="blog-info ms-3">
+                            <h5 class="mb-3">Breaking News</h5>
+                            <p>
+                               As the largest Firehawk fleet in the world, these
+                               aircraft are a critical tool in Cal Fire’s mission to
+                               respond quickly, operate safely, and contain wildfires
+                               before they grow.
+                            </p>
+                            <a class="blog-details" href="#">Read More....</a>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </section>
+             <!-- Blog Section -->
+             <section class="blog-section">
+                <h3 class="blog-category-title">International</h3>
+                <div class="row">
+                   <div class="col-md-6">
+                      <article class="blog-category-article">
+                         <div class="blog-image">
+                            <img
+                               src="https://ramjas.du.ac.in/college/web/dept/political_science.jpg"
+                               alt=""
+                               />
+                         </div>
+                         <div class="blog-content">
+                            <h3 class="mb-3">
+                               Voters share the economic impacts of Trump’s megabill in
+                               battleground Arizona
+                            </h3>
+                            <p>
+                               Tucson, Arizona — Opening a new restaurant is always a
+                               risk, but this one even more so: It’s a scorching summer
+                               in the Arizona desert, meat prices are up and the
+                               economy is unpredictable.
+                            </p>
+                            <a class="blog-details" href="#">Read More....</a>
+                         </div>
+                      </article>
+                   </div>
+                   <div class="col-md-6">
+                      <div class="blog-card d-flex mb-4">
+                         <div class="blog-card-image">
+                            <img
+                               src="https://thumbs.dreamstime.com/b/news-microphone-air-vertical-21448290.jpg"
+                               alt=""
+                               />
+                         </div>
+                         <div class="blog-info ms-3">
+                            <h5 class="mb-3">Breaking News</h5>
+                            <p>
+                               As the largest Firehawk fleet in the world, these
+                               aircraft are a critical tool in Cal Fire’s mission to
+                               respond quickly, operate safely, and contain wildfires
+                               before they grow.
+                            </p>
+                            <a class="blog-details" href="#">Read More....</a>
+                         </div>
+                      </div>
+                      <div class="blog-card d-flex mb-4">
+                         <div class="blog-card-image">
+                            <img
+                               src="https://thumbs.dreamstime.com/b/news-microphone-air-vertical-21448290.jpg"
+                               alt=""
+                               />
+                         </div>
+                         <div class="blog-info ms-3">
+                            <h5 class="mb-3">Breaking News</h5>
+                            <p>
+                               As the largest Firehawk fleet in the world, these
+                               aircraft are a critical tool in Cal Fire’s mission to
+                               respond quickly, operate safely, and contain wildfires
+                               before they grow.
+                            </p>
+                            <a class="blog-details" href="#">Read More....</a>
+                         </div>
+                      </div>
+                      <div class="blog-card d-flex mb-4">
+                         <div class="blog-card-image">
+                            <img
+                               src="https://thumbs.dreamstime.com/b/news-microphone-air-vertical-21448290.jpg"
+                               alt=""
+                               />
+                         </div>
+                         <div class="blog-info ms-3">
+                            <h5 class="mb-3">Breaking News</h5>
+                            <p>
+                               As the largest Firehawk fleet in the world, these
+                               aircraft are a critical tool in Cal Fire’s mission to
+                               respond quickly, operate safely, and contain wildfires
+                               before they grow.
+                            </p>
+                            <a class="blog-details" href="#">Read More....</a>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </section>
+          </div>
+          <div class="col-md-4">
+             <!-- Nost Viewed Blog -->
+             <section class="most-viewed-section">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                   <h4>Most Viewed</h4>
+                   <a href="#">See all...</a>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">
+                      01
+                   </div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>Thanks sniffed in hello after in foolhardy and some far purposefully much one at the much conjointly leapt skimpily......</p>
+                   </div>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">
+                      02
+                   </div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>Thanks sniffed in hello after in foolhardy and some far purposefully much one at the much conjointly leapt skimpily......</p>
+                   </div>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">
+                      03
+                   </div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>Thanks sniffed in hello after in foolhardy and some far purposefully much one at the much conjointly leapt skimpily......</p>
+                   </div>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">
+                      04
+                   </div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>Thanks sniffed in hello after in foolhardy and some far purposefully much one at the much conjointly leapt skimpily......</p>
+                   </div>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">
+                      05
+                   </div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>Thanks sniffed in hello after in foolhardy and some far purposefully much one at the much conjointly leapt skimpily......</p>
+                   </div>
+                </div>
+             </section>
+             <!-- Editor's Choice -->
+             <section class="most-viewed-section">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                   <h4>Editor's Choice</h4>
+                   <a href="#">See all...</a>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">
+                      01
+                   </div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>Thanks sniffed in hello after in foolhardy and some far purposefully much one at the much conjointly leapt skimpily......</p>
+                   </div>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">
+                      02
+                   </div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>Thanks sniffed in hello after in foolhardy and some far purposefully much one at the much conjointly leapt skimpily......</p>
+                   </div>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">
+                      03
+                   </div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>Thanks sniffed in hello after in foolhardy and some far purposefully much one at the much conjointly leapt skimpily......</p>
+                   </div>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">
+                      04
+                   </div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>Thanks sniffed in hello after in foolhardy and some far purposefully much one at the much conjointly leapt skimpily......</p>
+                   </div>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">
+                      05
+                   </div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>Thanks sniffed in hello after in foolhardy and some far purposefully much one at the much conjointly leapt skimpily......</p>
+                   </div>
+                </div>
+             </section>
+          </div>
+       </div>
+    </div>
+ </main>   
+{% endblock %}
