@@ -55,14 +55,10 @@
                <nav class="nav-items">
                   <ul class="nav-menu">
                      <li class="item">
-                        <a href="index.html">Home</a>
-                        <a href="category.html">Bangladesh</a>
-                        <a href="category.html">International</a>
-                        <a href="category.html">Politics</a>
-                        <a href="category.html">Information Technology</a>
-                        <a href="category.html">Cultural</a>
-                        <a href="category.html">Weather</a>
-                        <a href="category.html">Sports</a>
+                        <a href="/">Home</a>
+                        {% for category in categories %}
+                        <a href="{% url 'categoryPage' category.category_slug %}">{{ category.category_name }}</a>
+                        {% endfor %}
                      </li>
                   </ul>
                </nav>
