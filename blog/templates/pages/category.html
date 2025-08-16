@@ -1,4 +1,180 @@
 {% extends 'layouts/base.html' %}
 {% block content %}
- category
+ <!-- Breadcrumb -->
+ <section class="breadcrumb bg-light pb-3">
+    <div class="container">
+       <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a href="#">Home</a></li>
+             <li class="breadcrumb-item active" aria-current="page">Library</li>
+          </ol>
+       </nav>
+    </div>
+ </section>
+  <!-- Main Section -->
+  <main class="content">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-8">
+             <!-- Blog Section -->
+             <section class="blog-section mb-4">
+                <h3 class="blog-category-title">Politics</h3>
+                <div class="row">
+                    {% for blog in blogs %}
+                   <div class="col-md-6">
+                      <article class="blog-category-article">
+                         <div class="blog-image">
+                            <img
+                               src="{{ blog.thumbnail.url }}"
+                               alt="{{ blog.blog_name }}"
+                               />
+                         </div>
+                         <div class="blog-content">
+                            <h3 class="mb-3">
+                              {{ blog.blog_name }}
+                            </h3>
+                            <p>
+                               {{ blog.short_descriöption }}
+                            </p>
+                            <a class="blog-details" href="#">Read More....</a>
+                         </div>
+                      </article>
+                   </div>
+                   {% endfor %}
+                </div>
+             </section>
+          </div>
+          <div class="col-md-4">
+             <!-- Most Viewed -->
+             <section class="most-viewed-section">
+                <div
+                   class="d-flex justify-content-between align-items-center mb-4"
+                   >
+                   <h4>Most Viewed</h4>
+                   <a href="#">See all...</a>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">01</div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>
+                         Thanks sniffed in hello after in foolhardy and some far
+                         purposefully much one at the much conjointly leapt
+                         skimpily......
+                      </p>
+                   </div>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">02</div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>
+                         Thanks sniffed in hello after in foolhardy and some far
+                         purposefully much one at the much conjointly leapt
+                         skimpily......
+                      </p>
+                   </div>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">03</div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>
+                         Thanks sniffed in hello after in foolhardy and some far
+                         purposefully much one at the much conjointly leapt
+                         skimpily......
+                      </p>
+                   </div>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">04</div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>
+                         Thanks sniffed in hello after in foolhardy and some far
+                         purposefully much one at the much conjointly leapt
+                         skimpily......
+                      </p>
+                   </div>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">05</div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>
+                         Thanks sniffed in hello after in foolhardy and some far
+                         purposefully much one at the much conjointly leapt
+                         skimpily......
+                      </p>
+                   </div>
+                </div>
+             </section>
+             <!-- Editor's Choice -->
+             <section class="most-viewed-section">
+                <div
+                   class="d-flex justify-content-between align-items-center mb-4"
+                   >
+                   <h4>Editor's Choice</h4>
+                   <a href="#">See all...</a>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">01</div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>
+                         Thanks sniffed in hello after in foolhardy and some far
+                         purposefully much one at the much conjointly leapt
+                         skimpily......
+                      </p>
+                   </div>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">02</div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>
+                         Thanks sniffed in hello after in foolhardy and some far
+                         purposefully much one at the much conjointly leapt
+                         skimpily......
+                      </p>
+                   </div>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">03</div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>
+                         Thanks sniffed in hello after in foolhardy and some far
+                         purposefully much one at the much conjointly leapt
+                         skimpily......
+                      </p>
+                   </div>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">04</div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>
+                         Thanks sniffed in hello after in foolhardy and some far
+                         purposefully much one at the much conjointly leapt
+                         skimpily......
+                      </p>
+                   </div>
+                </div>
+                <div class="most-viewed-item mb-3">
+                   <div class="most-viewed-number">05</div>
+                   <div class="most-viewed-content">
+                      <h5>Why We Love to Watch</h5>
+                      <p>
+                         Thanks sniffed in hello after in foolhardy and some far
+                         purposefully much one at the much conjointly leapt
+                         skimpily......
+                      </p>
+                   </div>
+                </div>
+             </section>
+          </div>
+       </div>
+    </div>
+ </main>
 {% endblock %}
