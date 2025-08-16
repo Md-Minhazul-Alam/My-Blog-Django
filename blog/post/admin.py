@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Category, Tag, Blog
+from .models import Category, Tag, Blog, Social
+from websitesetting.models import Setting
 
 # Register your models here.
 
@@ -20,3 +21,15 @@ class BlogAdmin(admin.ModelAdmin):
     search_fields = ('blog_name', 'blog_slug')
 
 admin.site.register(Blog, BlogAdmin)
+
+class SocialAdmin(admin.ModelAdmin):
+    list_display = ('social_name', 'social_link')
+    search_fields = ('social_name', 'social_link')
+
+admin.site.register(Social, SocialAdmin)
+
+class WebsiteSettingAdmin(admin.ModelAdmin):
+    list_display = ('site_name', 'site_meta_keywords')
+    search_fields = ('site_name', 'site_meta_keywords')
+
+admin.site.register(Setting, WebsiteSettingAdmin)

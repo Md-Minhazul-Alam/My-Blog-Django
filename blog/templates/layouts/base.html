@@ -22,9 +22,9 @@
             <div class="container">
                <div class="row align-items-center">
                   <div class="col-6 col-md-6">
-                     <a href="index.html">
+                     <a href="/">
                      <img
-                        src="{% static 'frontend/assets/image/logo.png' %}"
+                        src="{{ settings.logo.url }}"
                         alt="my blog"
                         loading="lazy"
                         width="100"
@@ -34,9 +34,9 @@
                   <div class="col-6 col-md-6">
                      <div class="icons">
                         <i class="fas fa-search" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
-                        <i class="fa-brands fa-facebook"></i>
-                        <i class="fa-brands fa-instagram"></i>
-                        <i class="fa-brands fa-linkedin"></i>
+                        {% for social in socials %}
+                           <a target="_blank" href="{{ social.social_link }}">{{ social.social_icon | safe }}</a>
+                        {% endfor %}
                         <button
                            class="contact-button btn btn-primary d-none d-md-inline-block"
                            >
@@ -94,9 +94,7 @@
                   <div class="footer-about-section">
                      <h5>About Me</h5>
                      <p>
-                        Contrary to popular belief, Lorem Ipsum is not simply random
-                        text. It has roots in a piece of classical Latin literature from
-                        45 BC, making it over 2000 years old.
+                        {{ settings.site_description }}
                      </p>
                   </div>
                </div>
@@ -135,25 +133,17 @@
                   <div class="footer-social-section">
                      <h5>Social Media</h5>
                      <ul>
+                        {% for social in socials %}
                         <li>
-                           <a href="#"
-                              ><i class="fa-brands fa-facebook"></i> Facebook
-                           </a>
+                           <a target="_blank" href="{{ social.social_link }}">{{ social.social_icon | safe }} {{ social.social_name }}</a>
                         </li>
-                        <li>
-                           <a href="#"
-                              ><i class="fa-brands fa-instagram"></i> Instagram</a
-                              >
-                        </li>
-                        <li>
-                           <a href="#"><i class="fa-brands fa-linkedin"></i>Linkedin</a>
-                        </li>
+                        {% endfor %}
                      </ul>
                   </div>
                </div>
             </div>
             <div class="copyright-section text-center">
-               <p>&copy; 2025 My Blog. All rights reserved.</p>
+               <p>&copy;{% now "Y" %} {{ settings.site_name }}. All rights reserved.</p>
             </div>
          </div>
       </footer>

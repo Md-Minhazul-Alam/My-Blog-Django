@@ -65,3 +65,12 @@ class Blog(models.Model):
     
     def __str__(self):
         return self.blog_name
+    
+class Social(models.Model):
+    social_name = models.CharField(max_length=200, default='')
+    social_icon = models.TextField(default='')
+    social_link = models.TextField(default='')
+    is_active = models.BooleanField(default=True)
+    
+    def __str__(self):
+        return self.social_name
