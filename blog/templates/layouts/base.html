@@ -75,18 +75,11 @@
             </button>
          </div>
          <ul class="sidebar-menu">
+            {% for category in categories %}
             <li>
-               <a href="category.html">Bangladesh</a>
+               <a href="{% url 'categoryPage' category.category_slug %}">{{ category.category_name }}</a>
             </li>
-            <li>
-               <a href="category.html">Politics</a>
-            </li>
-            <li>
-               <a href="category.html">Cultural</a>
-            </li>
-            <li>
-               <a href="category.html">Weather</a>
-            </li>
+            {% endfor %}
          </ul>
       </div>
       <!-- Body Content -->
@@ -111,27 +104,11 @@
                   <div class="footer-category-section">
                      <h5>Category</h5>
                      <ul>
+                        {% for category in categories %}
                         <li>
-                           <a href="category.html">Bangladesh</a>
+                           <a href="{% url 'categoryPage' category.category_slug %}">{{ category.category_name }}</a>
                         </li>
-                        <li>
-                           <a href="category.html">International</a>
-                        </li>
-                        <li>
-                           <a href="category.html">Politics</a>
-                        </li>
-                        <li>
-                           <a href="category.html">Information Technology</a>
-                        </li>
-                        <li>
-                           <a href="category.html">Cultural</a>
-                        </li>
-                        <li>
-                           <a href="category.html">Weather</a>
-                        </li>
-                        <li>
-                           <a href="category.html">Sports</a>
-                        </li>
+                        {% endfor %}
                      </ul>
                   </div>
                </div>
