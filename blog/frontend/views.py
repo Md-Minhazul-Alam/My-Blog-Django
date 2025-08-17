@@ -54,8 +54,8 @@ def WebsitePage(request, page_slug):
     # Page
     pageMenu = Page.objects.all
     # Page
-    page = get_object_or_404(Page, page_slug=page_slug, is_active=True)
-    pageDetails = Page.objects.filter(page=page, is_active=True)
+    pageDetails = get_object_or_404(Page, page_slug=page_slug)
+    
     
     return render(request, "pages/page.html", {
         'categories': categoryMenu,
