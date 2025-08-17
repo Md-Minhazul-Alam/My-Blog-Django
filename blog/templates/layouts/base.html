@@ -114,18 +114,11 @@
                   <div class="footer-quick-link-section">
                      <h5>Quick Links</h5>
                      <ul>
+                        {% for page in pages %}
                         <li>
-                           <a href="#">About Us</a>
+                           <a href="{% url 'page' page.page_slug %}">{{ page.page_name }}</a>
                         </li>
-                        <li>
-                           <a href="#">Contact</a>
-                        </li>
-                        <li>
-                           <a href="#">Privacy Policy</a>
-                        </li>
-                        <li>
-                           <a href="#">Terms & Conditions</a>
-                        </li>
+                        {% endfor %}
                      </ul>
                   </div>
                </div>
