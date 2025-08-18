@@ -4,7 +4,7 @@ import requests
 from websitesetting.models import Setting
 from django.shortcuts import get_object_or_404
 
-# Create your views here.
+# Home Page
 def HomePage(request):
     # All Categories
     categoryMenu = Category.objects.all()
@@ -14,14 +14,21 @@ def HomePage(request):
     setting = Setting.objects.latest('id')
     # Page
     page = Page.objects.all
+    # Editor Choice
+    editor = Blog.objects.filter(
+        is_active=True,
+        is_featured=True,
+    )[:6]
     
     return render(request, "pages/home.html", {
         'categories': categoryMenu,
         'socials': social, 
         'settings': setting,
         'pages': page,
+        'editors': editor,
     })
-    
+
+# Category Page    
 def CategoryPage(request, category_slug):
     # All Categories
     categoryMenu = Category.objects.all()
@@ -34,6 +41,11 @@ def CategoryPage(request, category_slug):
     blogs = Blog.objects.filter(category=category, is_active=True)
     # Page
     page = Page.objects.all
+     # Editor Choice
+    editor = Blog.objects.filter(
+        is_active=True,
+        is_featured=True,
+    )[:6]
 
     return render(request, "pages/category.html", {
         'categories': categoryMenu,
@@ -41,6 +53,31 @@ def CategoryPage(request, category_slug):
         'settings': setting,
         'blogs': blogs,
         'pages': page,
+        'editors': editor,
+    })
+
+# Blog Details
+def blogDetails(request):
+    # All Categories
+    categoryMenu = Category.objects.all()
+    #  Social
+    social = Social.objects.all()
+    # Website Setting
+    setting = Setting.objects.latest('id')
+    # Page
+    page = Page.objects.all
+    # Editor Choice
+    editor = Blog.objects.filter(
+        is_active=True,
+        is_featured=True,
+    )[:6]
+    
+    return render(request, "pages/home.html", {
+        'categories': categoryMenu,
+        'socials': social, 
+        'settings': setting,
+        'pages': page,
+        'editors': editor,
     })
 
 # Page

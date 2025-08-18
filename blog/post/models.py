@@ -63,7 +63,9 @@ class Blog(models.Model):
     description = models.TextField(blank=True, null=True)
     thumbnail = models.ImageField(upload_to='post', null=True, blank=True)
     keywords = models.TextField(blank=True, null=True)
+    is_featured = models.BooleanField(default=True)
     is_active = models.BooleanField(default=True)
+    
     
     def __str__(self):
         return self.blog_name
