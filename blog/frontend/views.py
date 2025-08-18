@@ -57,7 +57,7 @@ def CategoryPage(request, category_slug):
     })
 
 # Blog Details
-def blogDetails(request):
+def blogDetails(request, blog_slug):
     # All Categories
     categoryMenu = Category.objects.all()
     #  Social
@@ -71,13 +71,16 @@ def blogDetails(request):
         is_active=True,
         is_featured=True,
     )[:6]
+    # Blog Details
+    details = get_object_or_404(Blog, blog_slug = blog_slug)
     
-    return render(request, "pages/home.html", {
+    return render(request, "pages/blog-details.html", {
         'categories': categoryMenu,
         'socials': social, 
         'settings': setting,
         'pages': page,
         'editors': editor,
+        'blogDetails': details,
     })
 
 # Page

@@ -1,4 +1,183 @@
 {% extends 'layouts/base.html' %}
 {% block content %}
- 
+ <!-- Breadcrumb -->
+ <section class="breadcrumb bg-light pb-3">
+    <div class="container">
+       <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a href="#">Home</a></li>
+             <li class="breadcrumb-item active" aria-current="page">Library</li>
+          </ol>
+       </nav>
+    </div>
+ </section>
+ <!-- Main Section -->
+ <main class="content">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-8">
+             <!-- Blog Section -->
+             <section class="blog-section mb-4">
+                <img
+                   class="w-100"
+                   src="{{ blogDetails.thumbnail.url }}"
+                   loading="lazy"
+                   alt=""
+                   />
+                <div class="blog-content">
+                   <h3 class="mb-3 mt-3">
+                      {{ blogDetails.blog_name }}
+                   </h3>
+                   <div>
+                    {{ blogDetails.description | safe }}
+                   </div>
+                </div>
+                <hr />
+                 <!-- Comment Section -->
+                <div class="comment-section">
+                   <div class="comments">
+                      <h1 class="mb-2">Comments(10)</h1>
+                      <ul class="list-unstyled">
+                         <li class="mb-2 comment-card p-2 bg-light rounded-3">
+                            <div class="d-flex">
+                               <img
+                                  class="avatar"
+                                  src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
+                                  alt=""
+                                  />
+                               <div class="w-100">
+                                  <div
+                                     class="d-flex justify-content-between align-items-start"
+                                     >
+                                     <div>
+                                        <strong>Md Minhazul Alam</strong>
+                                        <div class="text-muted small">
+                                           10th August 2025
+                                        </div>
+                                     </div>
+                                  </div>
+                                  <div class="comment-body mt-2 mb-2">
+                                     Great Ideas here! Loved the concept.
+                                  </div>
+                               </div>
+                            </div>
+                         </li>
+                         <li class="mb-2 comment-card p-2 bg-light rounded-3">
+                            <div class="d-flex">
+                               <img
+                                  class="avatar"
+                                  src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
+                                  alt=""
+                                  />
+                               <div class="w-100">
+                                  <div
+                                     class="d-flex justify-content-between align-items-start"
+                                     >
+                                     <div>
+                                        <strong>Md Minhazul Alam</strong>
+                                        <div class="text-muted small">
+                                           10th August 2025
+                                        </div>
+                                     </div>
+                                  </div>
+                                  <div class="comment-body mt-2 mb-2">
+                                     Great Ideas here! Loved the concept.
+                                  </div>
+                               </div>
+                            </div>
+                         </li>
+                         <li class="mb-2 comment-card p-2 bg-light rounded-3">
+                            <div class="d-flex">
+                               <img
+                                  class="avatar"
+                                  src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
+                                  alt=""
+                                  />
+                               <div class="w-100">
+                                  <div
+                                     class="d-flex justify-content-between align-items-start"
+                                     >
+                                     <div>
+                                        <strong>Md Minhazul Alam</strong>
+                                        <div class="text-muted small">
+                                           10th August 2025
+                                        </div>
+                                     </div>
+                                  </div>
+                                  <div class="comment-body mt-2 mb-2">
+                                     Great Ideas here! Loved the concept.
+                                  </div>
+                               </div>
+                            </div>
+                         </li>
+                         <li class="mb-2 comment-card p-2 bg-light rounded-3">
+                            <div class="d-flex">
+                               <img
+                                  class="avatar"
+                                  src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
+                                  alt=""
+                                  />
+                               <div class="w-100">
+                                  <div
+                                     class="d-flex justify-content-between align-items-start"
+                                     >
+                                     <div>
+                                        <strong>Md Minhazul Alam</strong>
+                                        <div class="text-muted small">
+                                           10th August 2025
+                                        </div>
+                                     </div>
+                                  </div>
+                                  <div class="comment-body mt-2 mb-2">
+                                     Great Ideas here! Loved the concept.
+                                  </div>
+                               </div>
+                            </div>
+                         </li>
+                      </ul>
+                   </div>
+                   <hr />
+                   <h3 class="mb-3">Comments Here:</h3>
+                   <div class="mb-3">
+                      <label for="fullName" class="form-label">Full Name</label>
+                      <input
+                         type="text"
+                         class="form-control"
+                         id="fullName"
+                         placeholder="Full Name"
+                         />
+                   </div>
+                   <div class="mb-3">
+                      <label for="comments" class="form-label">Comments</label>
+                      <textarea
+                         class="form-control"
+                         id="comments"
+                         rows="3"
+                         ></textarea>
+                   </div>
+                   <div>
+                      <button class="btn btn-primary">Submit</button>
+                   </div>
+                </div>
+             </section>
+          </div>
+          <div class="col-md-4">
+             <!-- Blog Category Section -->
+             <div class="p-0 mb-5 sidebar-block-category bg-light p-4">
+                <h4 class="fst-italic">Category</h4>
+                <ul class="list-styled mb-0">
+                   <li><a href="category.html">Bangladesh</a></li>
+                   <li><a href="category.html">International</a></li>
+                   <li><a href="category.html">Politics</a></li>
+                   <li><a href="category.html">Information Technology</a></li>
+                   <li><a href="category.html">Cultural</a></li>
+                   <li><a href="category.html">Weather</a></li>
+                   <li><a href="category.html">Sports</a></li>
+                </ul>
+             </div>
+             {% include 'inc/most-viewed.html' %} 
+          </div>
+       </div>
+    </div>
+ </main>
 {% endblock %}
