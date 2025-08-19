@@ -92,174 +92,43 @@
        <div class="row">
           <div class="col-md-8">
              <!-- Blog Section -->
-              {% for sections in category_sections %}
+             {% for section in category_sections %}
              <section class="blog-section border-bottom border-dark mb-4">
                 <h3 class="blog-category-title">{{ section.category.category_name }}</h3>
                 <div class="row">
                    <div class="col-md-6">
                       <article class="blog-category-article">
                          <div class="blog-image">
-                            <img
-                               src="https://ramjas.du.ac.in/college/web/dept/political_science.jpg"
-                               alt=""
-                               />
+                            <img src="{{ section.first_blog.thumbnail.url }}" alt="{{ section.first_blog.blog_name }}">
                          </div>
                          <div class="blog-content">
                             <h3 class="mb-3">
-                             {{ section.first_blog.blog_name }}
+                               {{ section.first_blog.blog_name }}
                             </h3>
                             <p>
-                              {{ section.first_blog.short_description }}
+                               {{ section.first_blog.short_description|truncatewords:15 }}
                             </p>
-                            <a class="blog-details" href="{% url 'blogDetails' sections.first_blog.blog_slug %}">Read More....</a>
+                            <a class="blog-details" href="{% url 'blogDetails' section.first_blog.blog_slug %}">Read More....</a>
                          </div>
                       </article>
                    </div>
                    <div class="col-md-6">
-
-                      <div class="blog-card d-flex mb-4">
-                         <div class="blog-card-image">
-                            <img
-                               src="https://thumbs.dreamstime.com/b/news-microphone-air-vertical-21448290.jpg"
-                               alt=""
-                               />
+                      {% for blog in section.other_blog %}
+                         <div class="blog-card d-flex mb-4">
+                            <div class="blog-card-image">
+                               <img src="{{ blog.thumbnail.url }}" alt="{{ blog.blog_name }}">
+                            </div>
+                            <div class="blog-info ms-3">
+                               <h5 class="mb-3">{{ blog.blog_name }}</h5>
+                               <p>{{ blog.short_description|truncatewords:10 }}</p>
+                               <a class="blog-details" href="{% url 'blogDetails' blog.blog_slug %}">Read More....</a>
+                            </div>
                          </div>
-                         <div class="blog-info ms-3">
-                            <h5 class="mb-3">Breaking News</h5>
-                            <p>
-                               As the largest Firehawk fleet in the world, these
-                               aircraft are a critical tool in Cal Fire’s mission to
-                               respond quickly, operate safely, and contain wildfires
-                               before they grow.
-                            </p>
-                            <a class="blog-details" href="#">Read More....</a>
-                         </div>
-                      </div>
-                      <div class="blog-card d-flex mb-4">
-                         <div class="blog-card-image">
-                            <img
-                               src="https://thumbs.dreamstime.com/b/news-microphone-air-vertical-21448290.jpg"
-                               alt=""
-                               />
-                         </div>
-                         <div class="blog-info ms-3">
-                            <h5 class="mb-3">Breaking News</h5>
-                            <p>
-                               As the largest Firehawk fleet in the world, these
-                               aircraft are a critical tool in Cal Fire’s mission to
-                               respond quickly, operate safely, and contain wildfires
-                               before they grow.
-                            </p>
-                            <a class="blog-details" href="#">Read More....</a>
-                         </div>
-                      </div>
-                      <div class="blog-card d-flex mb-4">
-                         <div class="blog-card-image">
-                            <img
-                               src="https://thumbs.dreamstime.com/b/news-microphone-air-vertical-21448290.jpg"
-                               alt=""
-                               />
-                         </div>
-                         <div class="blog-info ms-3">
-                            <h5 class="mb-3">Breaking News</h5>
-                            <p>
-                               As the largest Firehawk fleet in the world, these
-                               aircraft are a critical tool in Cal Fire’s mission to
-                               respond quickly, operate safely, and contain wildfires
-                               before they grow.
-                            </p>
-                            <a class="blog-details" href="#">Read More....</a>
-                         </div>
-                      </div>
+                      {% endfor %}
                    </div>
                 </div>
              </section>
-             {% endfor %}
-             <!-- Blog Section -->
-             <section class="blog-section">
-                <h3 class="blog-category-title">International</h3>
-                <div class="row">
-                   <div class="col-md-6">
-                      <article class="blog-category-article">
-                         <div class="blog-image">
-                            <img
-                               src="https://ramjas.du.ac.in/college/web/dept/political_science.jpg"
-                               alt=""
-                               />
-                         </div>
-                         <div class="blog-content">
-                            <h3 class="mb-3">
-                               Voters share the economic impacts of Trump’s megabill in
-                               battleground Arizona
-                            </h3>
-                            <p>
-                               Tucson, Arizona — Opening a new restaurant is always a
-                               risk, but this one even more so: It’s a scorching summer
-                               in the Arizona desert, meat prices are up and the
-                               economy is unpredictable.
-                            </p>
-                            <a class="blog-details" href="#">Read More....</a>
-                         </div>
-                      </article>
-                   </div>
-                   <div class="col-md-6">
-                      <div class="blog-card d-flex mb-4">
-                         <div class="blog-card-image">
-                            <img
-                               src="https://thumbs.dreamstime.com/b/news-microphone-air-vertical-21448290.jpg"
-                               alt=""
-                               />
-                         </div>
-                         <div class="blog-info ms-3">
-                            <h5 class="mb-3">Breaking News</h5>
-                            <p>
-                               As the largest Firehawk fleet in the world, these
-                               aircraft are a critical tool in Cal Fire’s mission to
-                               respond quickly, operate safely, and contain wildfires
-                               before they grow.
-                            </p>
-                            <a class="blog-details" href="#">Read More....</a>
-                         </div>
-                      </div>
-                      <div class="blog-card d-flex mb-4">
-                         <div class="blog-card-image">
-                            <img
-                               src="https://thumbs.dreamstime.com/b/news-microphone-air-vertical-21448290.jpg"
-                               alt=""
-                               />
-                         </div>
-                         <div class="blog-info ms-3">
-                            <h5 class="mb-3">Breaking News</h5>
-                            <p>
-                               As the largest Firehawk fleet in the world, these
-                               aircraft are a critical tool in Cal Fire’s mission to
-                               respond quickly, operate safely, and contain wildfires
-                               before they grow.
-                            </p>
-                            <a class="blog-details" href="#">Read More....</a>
-                         </div>
-                      </div>
-                      <div class="blog-card d-flex mb-4">
-                         <div class="blog-card-image">
-                            <img
-                               src="https://thumbs.dreamstime.com/b/news-microphone-air-vertical-21448290.jpg"
-                               alt=""
-                               />
-                         </div>
-                         <div class="blog-info ms-3">
-                            <h5 class="mb-3">Breaking News</h5>
-                            <p>
-                               As the largest Firehawk fleet in the world, these
-                               aircraft are a critical tool in Cal Fire’s mission to
-                               respond quickly, operate safely, and contain wildfires
-                               before they grow.
-                            </p>
-                            <a class="blog-details" href="#">Read More....</a>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-             </section>
+          {% endfor %}
           </div>
           <div class="col-md-4">
             {% include 'inc/most-viewed.html' %} 

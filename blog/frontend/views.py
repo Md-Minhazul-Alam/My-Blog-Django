@@ -5,45 +5,42 @@ from websitesetting.models import Setting
 from django.shortcuts import get_object_or_404
 from django.db.models import F
 
+
 # Home Page
 def HomePage(request):
-    # All Categories
     categoryMenu = Category.objects.all()
-    #  Social
     social = Social.objects.all()
-    # Website Setting
     setting = Setting.objects.latest('id')
-    # Page
-    page = Page.objects.all
-    # Editor Choice
-    editor = Blog.objects.filter(
-        is_active=True,
-        is_featured=True,
-    )[:6]
+    page = Page.objects.all()
+    editor = Blog.objects.filter(is_active=True, is_featured=True)[:6]
+
     # Get Category Blog
     category_sections = []
-    category_blogs = Category.objects.filter(is_active=True)
+    categories = Category.objects.filter(is_active=True)
 
-    for category in category_blogs:
-        blogs = Blog.objects.filter(
-            category = category, 
+    for category in categories:
+        blogs = list(Blog.objects.filter(
+            category=category,
             is_active=True
-        ).order_by('-id')[:10]
+        ).order_by('-id')[:10])
 
         if blogs:
             category_sections.append({
-                'category': category, 
+                'category': category,
                 'first_blog': blogs[0],
-                'other_blog': blogs[1:],
+                'other_blog': blogs[1:], 
             })
+    # Most Viewed Blogs
+    most_viewed = Blog.objects.filter(is_active=True).order_by('-views')[:5]
 
-    
     return render(request, "pages/home.html", {
         'categories': categoryMenu,
-        'socials': social, 
+        'socials': social,
         'settings': setting,
         'pages': page,
         'editors': editor,
+        'category_sections': category_sections, 
+        'most_viewed': most_viewed,
     })
 
 # Category Page    
@@ -64,6 +61,8 @@ def CategoryPage(request, category_slug):
         is_active=True,
         is_featured=True,
     )[:6]
+    # Most Viewed Blogs
+    most_viewed = Blog.objects.filter(is_active=True).order_by('-views')[:5]
 
     return render(request, "pages/category.html", {
         'categories': categoryMenu,
@@ -72,6 +71,7 @@ def CategoryPage(request, category_slug):
         'blogs': blogs,
         'pages': page,
         'editors': editor,
+        'most_viewed': most_viewed,
     })
 
 # Blog Details

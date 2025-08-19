@@ -6,59 +6,17 @@
        <h4>Most Viewed</h4>
        <a href="#">See all...</a>
     </div>
+    {% for blog in most_viewed %}
     <div class="most-viewed-item mb-3">
-       <div class="most-viewed-number">01</div>
+       <div class="most-viewed-number">{{ forloop.counter|stringformat:"02d" }}</div>
        <div class="most-viewed-content">
-          <h5>Why We Love to Watch</h5>
+         <a href="{% url 'blogDetails' blog.blog_slug %}">
+            <h5>{{ blog.blog_name }}</h5>
+         </a>
           <p>
-             Thanks sniffed in hello after in foolhardy and some far
-             purposefully much one at the much conjointly leapt
-             skimpily......
+            {{ blog.short_description|truncatewords:15 }}
           </p>
        </div>
     </div>
-    <div class="most-viewed-item mb-3">
-       <div class="most-viewed-number">02</div>
-       <div class="most-viewed-content">
-          <h5>Why We Love to Watch</h5>
-          <p>
-             Thanks sniffed in hello after in foolhardy and some far
-             purposefully much one at the much conjointly leapt
-             skimpily......
-          </p>
-       </div>
-    </div>
-    <div class="most-viewed-item mb-3">
-       <div class="most-viewed-number">03</div>
-       <div class="most-viewed-content">
-          <h5>Why We Love to Watch</h5>
-          <p>
-             Thanks sniffed in hello after in foolhardy and some far
-             purposefully much one at the much conjointly leapt
-             skimpily......
-          </p>
-       </div>
-    </div>
-    <div class="most-viewed-item mb-3">
-       <div class="most-viewed-number">04</div>
-       <div class="most-viewed-content">
-          <h5>Why We Love to Watch</h5>
-          <p>
-             Thanks sniffed in hello after in foolhardy and some far
-             purposefully much one at the much conjointly leapt
-             skimpily......
-          </p>
-       </div>
-    </div>
-    <div class="most-viewed-item mb-3">
-       <div class="most-viewed-number">05</div>
-       <div class="most-viewed-content">
-          <h5>Why We Love to Watch</h5>
-          <p>
-             Thanks sniffed in hello after in foolhardy and some far
-             purposefully much one at the much conjointly leapt
-             skimpily......
-          </p>
-       </div>
-    </div>
+    {% endfor %}
  </section>
