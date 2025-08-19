@@ -28,12 +28,12 @@ def HomePage(request):
         blogs = Blog.objects.filter(
             category = category, 
             is_active=True
-        ).order_by('-created_at')[:10]
+        ).order_by('-id')[:10]
 
         if blogs:
             category_sections.append({
                 'category': category, 
-                'first_blogs': blogs[0],
+                'first_blog': blogs[0],
                 'other_blog': blogs[1:],
             })
 

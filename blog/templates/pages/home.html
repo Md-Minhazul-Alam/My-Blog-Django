@@ -92,8 +92,9 @@
        <div class="row">
           <div class="col-md-8">
              <!-- Blog Section -->
+              {% for sections in category_sections %}
              <section class="blog-section border-bottom border-dark mb-4">
-                <h3 class="blog-category-title">Politics</h3>
+                <h3 class="blog-category-title">{{ section.category.category_name }}</h3>
                 <div class="row">
                    <div class="col-md-6">
                       <article class="blog-category-article">
@@ -105,20 +106,17 @@
                          </div>
                          <div class="blog-content">
                             <h3 class="mb-3">
-                               Voters share the economic impacts of Trump’s megabill in
-                               battleground Arizona
+                             {{ section.first_blog.blog_name }}
                             </h3>
                             <p>
-                               Tucson, Arizona — Opening a new restaurant is always a
-                               risk, but this one even more so: It’s a scorching summer
-                               in the Arizona desert, meat prices are up and the
-                               economy is unpredictable.
+                              {{ section.first_blog.short_description }}
                             </p>
-                            <a class="blog-details" href="#">Read More....</a>
+                            <a class="blog-details" href="{% url 'blogDetails' sections.first_blog.blog_slug %}">Read More....</a>
                          </div>
                       </article>
                    </div>
                    <div class="col-md-6">
+
                       <div class="blog-card d-flex mb-4">
                          <div class="blog-card-image">
                             <img
@@ -176,6 +174,7 @@
                    </div>
                 </div>
              </section>
+             {% endfor %}
              <!-- Blog Section -->
              <section class="blog-section">
                 <h3 class="blog-category-title">International</h3>
