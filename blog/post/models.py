@@ -66,6 +66,8 @@ class Blog(models.Model):
     is_featured = models.BooleanField(default=True)
     is_active = models.BooleanField(default=True)
     
+    # View Count
+    views = models.PositiveIntegerField(default=0)
     
     def __str__(self):
         return self.blog_name
@@ -125,3 +127,13 @@ class Page(models.Model):
 
         self.page_slug = slug
         super().save(*args, **kwargs)
+
+# Category Based Blog
+class CategoryBlog(models.Model):
+    heading = models.CharField(max_length=255, verbose_name="heading")
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('category', 'heading')
+
+    

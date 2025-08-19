@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Tag, Blog, Social, Page
+from .models import Category, Tag, Blog, Social, Page, CategoryBlog
 from websitesetting.models import Setting 
 
 # Register Category
@@ -44,3 +44,11 @@ class PageAdmin(admin.ModelAdmin):
     search_fields = ('page_name', 'page_slug')
 
 admin.site.register(Page, PageAdmin)
+
+# Category Blog
+class CategoryBlogAdmin(admin.ModelAdmin):
+    list_display = ('heading', 'category')
+    search_fields = ('heading', 'category')
+    
+
+admin.site.register(CategoryBlog, CategoryBlogAdmin)

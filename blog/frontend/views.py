@@ -1,8 +1,9 @@
-from post.models import Category, Social, Blog, Page
+from post.models import Category, Social, Blog, Page, CategoryBlog
 from django.shortcuts import render
 import requests 
 from websitesetting.models import Setting
 from django.shortcuts import get_object_or_404
+from django.db.models import F
 
 # Home Page
 def HomePage(request):
@@ -19,6 +20,23 @@ def HomePage(request):
         is_active=True,
         is_featured=True,
     )[:6]
+    # Get Category Blog
+    category_sections = []
+    category_blogs = Category.objects.filter(is_active=True)
+
+    for category in category_blogs:
+        blogs = Blog.objects.filter(
+            category = category, 
+            is_active=True
+        ).order_by('-created_at')[:10]
+
+        if blogs:
+            category_sections.append({
+                'category': category, 
+                'first_blogs': blogs[0],
+                'other_blog': blogs[1:],
+            })
+
     
     return render(request, "pages/home.html", {
         'categories': categoryMenu,
@@ -73,6 +91,9 @@ def blogDetails(request, blog_slug):
     )[:6]
     # Blog Details
     details = get_object_or_404(Blog, blog_slug = blog_slug)
+    # View Count
+    Blog.objects.filter(pk=details.pk).update(views=F('views') + 1)
+    details.refresh_from_db()
     
     return render(request, "pages/blog-details.html", {
         'categories': categoryMenu,
