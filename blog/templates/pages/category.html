@@ -1,11 +1,13 @@
-{% extends 'layouts/base.html' %} {% block content %}
+{% extends 'layouts/base.html' %} 
+
+{% block content %}
 <!-- Breadcrumb -->
 <section class="breadcrumb bg-light pb-3">
   <div class="container">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Library</li>
+        <li class="breadcrumb-item active" aria-current="page">{{ category.category_name }}</li>
       </ol>
     </nav>
   </div>
@@ -18,10 +20,11 @@
       <div class="col-md-8">
         <!-- Blog Section -->
         <section class="blog-section mb-4">
-          <h3 class="blog-category-title">Politics</h3>
+          <h3 class="blog-category-title">{{ category.category_name }}</h3>
           <div class="row">
+            {% if blogs %}
             {% for blog in blogs %}
-            <div class="col-md-6">
+            <div class="col-md-6 mb-4">
               <article class="blog-category-article">
                 <div class="blog-image">
                   {% if blog.thumbnail %}
@@ -44,6 +47,10 @@
               </article>
             </div>
             {% endfor %}
+            {% else %}
+            <h5>No Blogs Available</h5>
+            {% endif %}
+            
           </div>
         </section>
       </div>

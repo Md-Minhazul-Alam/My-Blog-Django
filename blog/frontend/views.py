@@ -76,6 +76,7 @@ def CategoryPage(request, category_slug):
         'pages': page,
         'editors': editor,
         'most_viewed': most_viewed,
+        'category': category,
     })
 
 # Blog Details
