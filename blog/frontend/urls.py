@@ -6,4 +6,5 @@ urlpatterns = [
     path('category/<slug:category_slug>', views.CategoryPage, name='categoryPage'),
     path('blog-details/<slug:blog_slug>', views.blogDetails, name='blogDetails'),
     path('page/<slug:page_slug>', views.WebsitePage, name='page'),
+    path('search-blogs/', views.searchList, name='searchList'),
 ]

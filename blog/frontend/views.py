@@ -3,7 +3,7 @@ from django.shortcuts import render
 import requests 
 from websitesetting.models import Setting
 from django.shortcuts import get_object_or_404
-from django.db.models import F
+from django.db.models import F, Q 
 
 
 # Home Page
@@ -129,4 +129,31 @@ def WebsitePage(request, page_slug):
         'settings': setting,
         'pages': pageMenu,
         'pageInfo': pageDetails
+    })
+
+# Search Blogs
+def searchList(request):
+    # All Categories
+    categoryMenu = Category.objects.all()
+    #  Social
+    social = Social.objects.all()
+    # Website Setting
+    setting = Setting.objects.latest('id')
+    # Page
+    pageMenu = Page.objects.all
+    # Search Blogs
+    query = request.GET.get("keyword")
+    blogs = Blog.objects.all()
+    if query:
+        blogs = blogs.filter(
+            Q(blog_name = query)| Q(short_description = query) 
+        )
+    
+    
+    return render(request, "pages/search.html", {
+        'categories': categoryMenu,
+        'socials': social, 
+        'settings': setting,
+        'pages': pageMenu,
+        'blogs': blogs,    
     })
