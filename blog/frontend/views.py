@@ -14,6 +14,9 @@ def HomePage(request):
     page = Page.objects.all()
     editor = Blog.objects.filter(is_active=True, is_featured=True)[:6]
 
+    # Slider
+    sliders = Blog.objects.filter(is_active=True, is_featured=True)[:3]
+
     # Get Category Blog
     category_sections = []
     categories = Category.objects.filter(is_active=True)
@@ -41,6 +44,7 @@ def HomePage(request):
         'editors': editor,
         'category_sections': category_sections, 
         'most_viewed': most_viewed,
+        'sliders': sliders, 
     })
 
 # Category Page    
