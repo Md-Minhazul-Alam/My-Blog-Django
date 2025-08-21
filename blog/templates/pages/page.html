@@ -1,4 +1,7 @@
 {% extends 'layouts/base.html' %}
+{% block title %} {{ pageInfo.page_name }} {% endblock %}
+{% block description %} {{ pageInfo.meta_description }} {% endblock %}
+{% block keywords %} {{ pageInfo.meta_keywords }} {% endblock %}
 {% block content %}
  <!-- Breadcrumb -->
  <section class="breadcrumb bg-light pb-3">
