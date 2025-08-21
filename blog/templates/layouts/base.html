@@ -37,11 +37,6 @@
                         {% for social in socials %}
                            <a target="_blank" href="{{ social.social_link }}">{{ social.social_icon | safe }}</a>
                         {% endfor %}
-                        <button
-                           class="contact-button btn btn-primary d-none d-md-inline-block"
-                           >
-                        Contact Me
-                        </button>
                         <button class="mobile-menu-toggle d-md-none" onclick="toggleMobileMenu()">
                         <i class="fa-solid fa-bars"></i>
                         </button>

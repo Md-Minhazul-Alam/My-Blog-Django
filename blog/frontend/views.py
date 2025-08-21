@@ -128,7 +128,7 @@ def WebsitePage(request, page_slug):
         'socials': social, 
         'settings': setting,
         'pages': pageMenu,
-        'pageInfo': pageDetails
+        'pageInfo': pageDetails,
     })
 
 # Search Blogs
@@ -141,19 +141,24 @@ def searchList(request):
     setting = Setting.objects.latest('id')
     # Page
     pageMenu = Page.objects.all
+    # Editor Choice
+    editor = Blog.objects.filter(is_active=True, is_featured=True)[:6]
+    # Most Viewed Blogs
+    most_viewed = Blog.objects.filter(is_active=True).order_by('-views')[:5]
     # Search Blogs
     query = request.GET.get("keyword")
     blogs = Blog.objects.all()
     if query:
         blogs = blogs.filter(
-            Q(blog_name = query)| Q(short_description = query) 
+            Q(blog_name__icontains=query) | Q(short_description__icontains=query) 
         )
-    
     
     return render(request, "pages/search.html", {
         'categories': categoryMenu,
         'socials': social, 
         'settings': setting,
         'pages': pageMenu,
+        'editors': editor,
+        'most_viewed': most_viewed,
         'blogs': blogs,    
     })
