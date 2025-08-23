@@ -215,3 +215,53 @@ def verify_comment_owner(request):
         'success': False,
         'message': 'invalid request'
     })
+# Edit Comment
+def edit_comment(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        comment_id = data.get('comment_id')
+        email = data.get('email')
+        new_comment = data.get('comment')
+
+        try:
+            comment = Comment.objects.get(id=comment_id, email=email, is_active=True)
+            comment.comment = new_comment
+            comment.save()
+
+            return JsonResponse({
+                'success': True,
+                'message': 'Comments updated successfully'
+            })
+        except Comment.DoesNotExist:
+            return JsonResponse({
+                'success': False,
+                'message': 'You are not authorized to edit'
+            })
+    return JsonResponse({
+        'success': False,
+        'message': 'invalid request'
+    })
+
+# Delete Comment
+def delete_comment(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        comment_id = data.get('comment_id')
+        email = data.get('email')
+
+
+        try:
+            comment = Comment.objects.get(id=comment_id, email=email, is_active=True)
+            comment.is_active = False
+            comment.save()
+
+            return JsonResponse({
+                'success': True,
+                'message': 'Comments deleted successfully'
+            })
+        except Comment.DoesNotExist:
+            return JsonResponse({
+                'success': False,
+                'message': 'You are not authorized to edit'
+            })
+       
