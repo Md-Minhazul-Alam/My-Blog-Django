@@ -1,5 +1,6 @@
 from django.db import models
-from django.utils.text import slugify
+from django.utils.text import slugify 
+from django.utils import timezone
 
 # Category
 class Category(models.Model):
@@ -128,6 +129,25 @@ class Page(models.Model):
         self.page_slug = slug
         super().save(*args, **kwargs)
 
+# Comments 
+class Comment(models.Model):
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='comments')
+    name = models.CharField(max_length=200)
+    email = models.EmailField()
+    comment = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(auto_now=True)
+    is_active = models.BooleanField(default=True)
+    
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f'comment by {self.name} on {self.blog.blog_name}'
+
+
+   
+
 # Category Based Blog
 class CategoryBlog(models.Model):
     heading = models.CharField(max_length=255, verbose_name="heading")
@@ -135,5 +155,7 @@ class CategoryBlog(models.Model):
 
     class Meta:
         unique_together = ('category', 'heading')
+
+    
 
     
