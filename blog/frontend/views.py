@@ -1,9 +1,13 @@
-from post.models import Category, Social, Blog, Page, CategoryBlog
+from post.models import Category, Social, Blog, Page, CategoryBlog, Comment
 from django.shortcuts import render
 import requests 
 from websitesetting.models import Setting
-from django.shortcuts import get_object_or_404
-from django.db.models import F, Q 
+from django.shortcuts import get_object_or_404, redirect
+from django.db.models import F, Q
+import json
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib import messages
 
 
 # Home Page
@@ -161,4 +165,53 @@ def searchList(request):
         'editors': editor,
         'most_viewed': most_viewed,
         'blogs': blogs,    
+    })
+
+# Add Comment
+def add_comment(request, blog_slug):
+    if request.method == 'POST':
+        blog = get_object_or_404(Blog, blog_slug=blog_slug)
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        comment_text = request.POST.get('comment')
+
+        if name and email and comment_text:
+            Comment.objects.create(
+                blog=blog,
+                name=name,
+                email=email,
+                comment=comment_text,
+            )
+            messages.success(request, 'Comments added successfully')
+        else:
+            messages.error(request, 'Please fill all the fields')
+    return redirect('blogDetails', blog_slug=blog_slug)
+
+# Verify Comment
+@csrf_exempt
+def verify_comment_owner(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        comment_id = data.get('comment_id')
+        email = data.get('email')
+
+        try:
+            comment = Comment.objects.get(id=comment_id, email=email, is_active=True),
+            return JsonResponse({
+               'success': True, 
+               'comment': {
+                   'id': comment.id, 
+                   'name': comment.name,
+                   'email': comment.email,
+                   'comment': comment.comment
+               } 
+            })
+        except Comment.DoesNotExist:
+            return JsonResponse({
+                'success': False,
+                'message': 'invalid email or comment not found'
+            })
+    return JsonResponse({
+        'success': False,
+        'message': 'invalid request'
     })
