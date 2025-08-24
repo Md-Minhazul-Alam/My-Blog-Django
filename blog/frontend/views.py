@@ -103,6 +103,9 @@ def blogDetails(request, blog_slug):
     # View Count
     Blog.objects.filter(pk=details.pk).update(views=F('views') + 1)
     details.refresh_from_db()
+
+    # Get Comments
+    comments = Comment.objects.filter(blog=details, is_active=True)
     
     return render(request, "pages/blog-details.html", {
         'categories': categoryMenu,
@@ -111,6 +114,7 @@ def blogDetails(request, blog_slug):
         'pages': page,
         'editors': editor,
         'blogDetails': details,
+        'comments': comments,
     })
 
 # Page
@@ -187,81 +191,36 @@ def add_comment(request, blog_slug):
             messages.error(request, 'Please fill all the fields')
     return redirect('blogDetails', blog_slug=blog_slug)
 
-# Verify Comment
-@csrf_exempt
-def verify_comment_owner(request):
-    if request.method == 'POST':
-        data = json.loads(request.body)
-        comment_id = data.get('comment_id')
-        email = data.get('email')
 
-        try:
-            comment = Comment.objects.get(id=comment_id, email=email, is_active=True),
-            return JsonResponse({
-               'success': True, 
-               'comment': {
-                   'id': comment.id, 
-                   'name': comment.name,
-                   'email': comment.email,
-                   'comment': comment.comment
-               } 
-            })
-        except Comment.DoesNotExist:
-            return JsonResponse({
-                'success': False,
-                'message': 'invalid email or comment not found'
-            })
-    return JsonResponse({
-        'success': False,
-        'message': 'invalid request'
-    })
-# Edit Comment
-def edit_comment(request):
     if request.method == 'POST':
-        data = json.loads(request.body)
-        comment_id = data.get('comment_id')
-        email = data.get('email')
-        new_comment = data.get('comment')
-
         try:
+            data = json.loads(request.body.decode('utf-8'))
+            comment_id = data.get('comment_id')
+            email = data.get('email')
+            
+            if not comment_id or not email:
+                return JsonResponse({
+                    'success': False,
+                    'message': 'Comment ID and email are required.'
+                })
+            
             comment = Comment.objects.get(id=comment_id, email=email, is_active=True)
-            comment.comment = new_comment
-            comment.save()
-
+            comment.delete()
+            return JsonResponse({'success': True, 'message': 'Comment deleted successfully!'})
+        except json.JSONDecodeError:
             return JsonResponse({
-                'success': True,
-                'message': 'Comments updated successfully'
+                'success': False,
+                'message': 'Invalid JSON data.'
             })
         except Comment.DoesNotExist:
             return JsonResponse({
                 'success': False,
-                'message': 'You are not authorized to edit'
+                'message': 'You are not authorized to delete this comment.'
             })
-    return JsonResponse({
-        'success': False,
-        'message': 'invalid request'
-    })
-
-# Delete Comment
-def delete_comment(request):
-    if request.method == 'POST':
-        data = json.loads(request.body)
-        comment_id = data.get('comment_id')
-        email = data.get('email')
-
-
-        try:
-            comment = Comment.objects.get(id=comment_id, email=email, is_active=True)
-            comment.is_active = False
-            comment.save()
-
-            return JsonResponse({
-                'success': True,
-                'message': 'Comments deleted successfully'
-            })
-        except Comment.DoesNotExist:
+        except Exception as e:
             return JsonResponse({
                 'success': False,
-                'message': 'You are not authorized to edit'
+                'message': f'An error occurred: {str(e)}'
             })
-       
+    
+    return JsonResponse({'success': False, 'message': 'Invalid request method.'})

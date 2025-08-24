@@ -39,128 +39,107 @@
                  <!-- Comment Section -->
                 <div class="comment-section">
                    <div class="comments">
-                      <h1 class="mb-2">Comments(10)</h1>
-                      <ul class="list-unstyled">
-                         <li class="mb-2 comment-card p-2 bg-light rounded-3">
+                      <!-- Show Comments Number -->
+                      <h1 class="mb-2">Comments ({{ comments.count }})</h1>
+                      
+                      <!-- Notification -->
+                      {% if messages %}
+                          {% for message in messages %}
+                              <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                  {{ message }}
+                                  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                              </div>
+                          {% endfor %}
+                      {% endif %}
+                      
+                      <ul class="list-unstyled" id="comments-list">
+                         <!-- View Comments -->
+                         {% for comment in comments %}
+                         <li class="mb-2 comment-card p-2 bg-light rounded-3" data-comment-id="{{ comment.id }}">
                             <div class="d-flex">
+                                {% load static %}
                                <img
                                   class="avatar"
-                                  src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
+                                  src="{% static 'frontend/assets/image/user.jpg' %}"
                                   alt=""
+                                  style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px;"
                                   />
                                <div class="w-100">
-                                  <div
-                                     class="d-flex justify-content-between align-items-start"
-                                     >
+                                  <div class="d-flex justify-content-between align-items-start">
                                      <div>
-                                        <strong>Md Minhazul Alam</strong>
+                                        <strong>{{ comment.name }}</strong>
                                         <div class="text-muted small">
-                                           10th August 2025
+                                           {{ comment.created_at|date:"jS F Y" }}
+                                           {% if comment.updated_at != comment.created_at %}
+                                               <span class="text-info">(edited)</span>
+                                           {% endif %}
                                         </div>
                                      </div>
+                                     <!-- Edit and delete buttons -->
+                                     <div class="dropdown">
+                                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                           Actions
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                           <li><a class="dropdown-item edit-comment" href="#" data-comment-id="{{ comment.id }}">Edit</a></li>
+                                           <li><a class="dropdown-item delete-comment text-danger" href="#" data-comment-id="{{ comment.id }}">Delete</a></li>
+                                        </ul>
+                                     </div>
                                   </div>
-                                  <div class="comment-body mt-2 mb-2">
-                                     Great Ideas here! Loved the concept.
+                                  <div class="comment-body mt-2 mb-2" id="comment-text-{{ comment.id }}">
+                                     {{ comment.comment }}
                                   </div>
                                </div>
                             </div>
                          </li>
-                         <li class="mb-2 comment-card p-2 bg-light rounded-3">
-                            <div class="d-flex">
-                               <img
-                                  class="avatar"
-                                  src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
-                                  alt=""
-                                  />
-                               <div class="w-100">
-                                  <div
-                                     class="d-flex justify-content-between align-items-start"
-                                     >
-                                     <div>
-                                        <strong>Md Minhazul Alam</strong>
-                                        <div class="text-muted small">
-                                           10th August 2025
-                                        </div>
-                                     </div>
-                                  </div>
-                                  <div class="comment-body mt-2 mb-2">
-                                     Great Ideas here! Loved the concept.
-                                  </div>
-                               </div>
-                            </div>
-                         </li>
-                         <li class="mb-2 comment-card p-2 bg-light rounded-3">
-                            <div class="d-flex">
-                               <img
-                                  class="avatar"
-                                  src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
-                                  alt=""
-                                  />
-                               <div class="w-100">
-                                  <div
-                                     class="d-flex justify-content-between align-items-start"
-                                     >
-                                     <div>
-                                        <strong>Md Minhazul Alam</strong>
-                                        <div class="text-muted small">
-                                           10th August 2025
-                                        </div>
-                                     </div>
-                                  </div>
-                                  <div class="comment-body mt-2 mb-2">
-                                     Great Ideas here! Loved the concept.
-                                  </div>
-                               </div>
-                            </div>
-                         </li>
-                         <li class="mb-2 comment-card p-2 bg-light rounded-3">
-                            <div class="d-flex">
-                               <img
-                                  class="avatar"
-                                  src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
-                                  alt=""
-                                  />
-                               <div class="w-100">
-                                  <div
-                                     class="d-flex justify-content-between align-items-start"
-                                     >
-                                     <div>
-                                        <strong>Md Minhazul Alam</strong>
-                                        <div class="text-muted small">
-                                           10th August 2025
-                                        </div>
-                                     </div>
-                                  </div>
-                                  <div class="comment-body mt-2 mb-2">
-                                     Great Ideas here! Loved the concept.
-                                  </div>
-                               </div>
-                            </div>
-                         </li>
+                         {% empty %}
+                         <li class="text-muted">No comments yet. Be the first to comment!</li>
+                         {% endfor %}
                       </ul>
                    </div>
                    <hr />
-                   <h3 class="mb-3">Comments Here:</h3>
-                   <div class="mb-3">
-                      <label for="fullName" class="form-label">Full Name</label>
-                      <input
-                         type="text"
-                         class="form-control"
-                         id="fullName"
-                         placeholder="Full Name"
-                         />
-                   </div>
-                   <div class="mb-3">
-                      <label for="comments" class="form-label">Comments</label>
-                      <textarea
-                         class="form-control"
-                         id="comments"
-                         rows="3"
-                         ></textarea>
-                   </div>
-                   <div>
-                      <button class="btn btn-primary">Submit</button>
-                   </div>
+                   <!-- Comment Form -->
+                   <h3 class="mb-3">Leave a Comment:</h3>
+                   <form method="post" action="{% url 'add_comment' blogDetails.blog_slug %}">
+                       {% csrf_token %}
+                       <div class="mb-3">
+                          <label for="name" class="form-label">Full Name *</label>
+                          <input
+                             type="text"
+                             class="form-control"
+                             id="name"
+                             name="name"
+                             placeholder="Enter your full name"
+                             required
+                             />
+                       </div>
+                       <div class="mb-3">
+                          <label for="email" class="form-label">Email Address *</label>
+                          <input
+                             type="email"
+                             class="form-control"
+                             id="email"
+                             name="email"
+                             placeholder="Enter your email address"
+                             required
+                             />
+                          <div class="form-text">Your email will not be disclosed.</div>
+                       </div>
+                       <div class="mb-3">
+                          <label for="comment" class="form-label">Comment *</label>
+                          <textarea
+                             class="form-control"
+                             id="comment"
+                             name="comment"
+                             rows="4"
+                             placeholder="Write your comment here..."
+                             required
+                             ></textarea>
+                       </div>
+                       <div>
+                          <button type="submit" class="btn btn-primary">Submit Comment</button>
+                       </div>
+                   </form>
                 </div>
              </section>
           </div>
@@ -181,4 +160,36 @@
        </div>
     </div>
  </main>
+
+
+
+<style>
+/* Comment style */
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.comment-card {
+    border: 1px solid #e9ecef;
+    transition: box-shadow 0.2s ease;
+}
+
+.comment-card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.comment-body {
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+
+.dropdown-toggle::after {
+    font-size: 0.8em;
+}
+</style>
+
 {% endblock %}
