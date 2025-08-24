@@ -35,6 +35,16 @@
                     {{ blogDetails.description | safe }}
                    </div>
                 </div>
+                <div class="blog-tags">
+                    <strong>Tags:</strong>
+                    {% for tag in tags %}
+                        <a href="#" class="badge bg-secondary">
+                            {{ tag.tag_name }}
+                        </a>
+                    {% empty %}
+                        <span>No tags</span>
+                    {% endfor %}
+                </div>
                 <hr />
                  <!-- Comment Section -->
                 <div class="comment-section">

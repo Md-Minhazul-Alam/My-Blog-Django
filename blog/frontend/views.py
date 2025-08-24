@@ -106,6 +106,8 @@ def blogDetails(request, blog_slug):
 
     # Get Comments
     comments = Comment.objects.filter(blog=details, is_active=True)
+    # All Tags
+    tags = details.tag.all()
     
     return render(request, "pages/blog-details.html", {
         'categories': categoryMenu,
@@ -115,6 +117,7 @@ def blogDetails(request, blog_slug):
         'editors': editor,
         'blogDetails': details,
         'comments': comments,
+        'tags': tags, 
     })
 
 # Page
