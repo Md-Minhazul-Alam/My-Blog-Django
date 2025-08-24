@@ -17,12 +17,20 @@ class TagAdmin(admin.ModelAdmin):
 
 admin.site.register(Tag, TagAdmin)
 
+class BlogTagInline(admin.TabularInline): 
+    model = Blog.tag.through   
+    extra = 1
+    autocomplete_fields = ['tag']
+
 # Register Blog
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ('blog_name', 'blog_slug')
+    list_display = ('blog_name', 'blog_slug', 'category', 'is_active', 'is_featured')
     search_fields = ('blog_name', 'blog_slug')
+    list_filter = ('category', 'is_active', 'is_featured')
+    filter_horizontal = ('tag',)
 
 admin.site.register(Blog, BlogAdmin)
+
 
 # Register Social
 class SocialAdmin(admin.ModelAdmin):
