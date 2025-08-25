@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+import pymysql
+pymysql.install_as_MySQLdb()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -82,6 +85,17 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'myblog',  # Your DB name
+#         'USER': 'root',  # Your DB username
+#         'PASSWORD': 'password',  # Your DB password
+#         'HOST': '127.0.0.1',  # The MySQL host from cPanel
+#         'PORT': '3306',  # MySQL default port
+#     }
+# }
 
 
 # Password validation

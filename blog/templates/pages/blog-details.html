@@ -171,6 +171,30 @@
     </div>
  </main>
 
+ <!-- Email verification -->
+<div class="modal fade" id="emailVerificationModal" tabindex="-1">
+   <div class="modal-dialog">
+       <div class="modal-content">
+           <div class="modal-header">
+               <h5 class="modal-title">Verify Your Email</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+           </div>
+           <div class="modal-body">
+               <p>Please enter your email address to verify that you own this comment:</p>
+               <div class="mb-3">
+                   <label for="verifyEmail" class="form-label">Email Address</label>
+                   <input type="email" class="form-control" id="verifyEmail" placeholder="Enter your email">
+               </div>
+               <div id="verificationError" class="alert alert-danger d-none"></div>
+           </div>
+           <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+               <button type="button" class="btn btn-primary" id="verifyEmailBtn">Verify</button>
+           </div>
+       </div>
+   </div>
+</div>
+
 
 
 <style>
@@ -201,5 +225,33 @@
     font-size: 0.8em;
 }
 </style>
+<script>
+ let currentCommentId = null;
+let currentAction = null;
+let verifiedEmail = null;
+
+// Edit comment
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('edit-comment')) {
+        e.preventDefault();
+        currentCommentId = e.target.getAttribute('data-comment-id');
+        currentAction = 'edit';
+        showEmailVerification();
+    }
+    
+    if (e.target.classList.contains('delete-comment')) {
+        e.preventDefault();
+        currentCommentId = e.target.getAttribute('data-comment-id');
+        currentAction = 'delete';
+        showEmailVerification();
+    }
+});
+
+function showEmailVerification() {
+    document.getElementById('verifyEmail').value = '';
+    document.getElementById('verificationError').classList.add('d-none');
+    new bootstrap.Modal(document.getElementById('emailVerificationModal')).show();
+}  
+</script>
 
 {% endblock %}
