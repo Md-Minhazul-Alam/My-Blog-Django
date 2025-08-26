@@ -23,17 +23,18 @@ def HomePage(request):
 
     # Get Category Blog
     category_sections = []
-    categories = Category.objects.filter(is_active=True)
+    category_blogs = CategoryBlog.objects.select_related('category').all()
 
-    for category in categories:
+    for cb in category_blogs: 
         blogs = list(Blog.objects.filter(
-            category=category,
+            category=cb.category,
             is_active=True
         ).order_by('-id')[:10])
 
         if blogs:
             category_sections.append({
-                'category': category,
+                'heading': cb.heading,
+                'category': cb.category,
                 'first_blog': blogs[0],
                 'other_blog': blogs[1:], 
             })
