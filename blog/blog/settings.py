@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'post',
     'frontend',
     'websitesetting',
+    'tinymce',
 ]
 
 MIDDLEWARE = [

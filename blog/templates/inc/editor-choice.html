@@ -5,6 +5,7 @@
        >
        <h4>Editor's Choice</h4>
     </div>
+    {% if editors %}
     {% for editor in editors %}
     <div class="most-viewed-item mb-3">
        <div class="most-viewed-number">01</div>
@@ -18,4 +19,7 @@
        </div>
     </div>
     {% endfor %}
+    {% else %}
+    <h5>No post available</h5>
+    {% endif %}
  </section>

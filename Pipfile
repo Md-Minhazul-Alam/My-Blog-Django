@@ -8,6 +8,7 @@ django = "*"
 pillow = "*"
 requests = "*"
 pymysql = "*"
+django-tinymce = "*"
 
 [dev-packages]
 

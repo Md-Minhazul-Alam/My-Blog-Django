@@ -5,6 +5,7 @@
        >
        <h4>Most Viewed</h4>
     </div>
+    {% if most_viewed %}
     {% for blog in most_viewed %}
     <div class="most-viewed-item mb-3">
        <div class="most-viewed-number">{{ forloop.counter|stringformat:"02d" }}</div>
@@ -18,4 +19,7 @@
        </div>
     </div>
     {% endfor %}
+    {% else %}
+    <h5>No post available</h5>
+    {% endif %}
  </section>

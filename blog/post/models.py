@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import slugify 
 from django.utils import timezone
+from tinymce.models import HTMLField
 
 # Category
 class Category(models.Model):
@@ -61,7 +62,7 @@ class Blog(models.Model):
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     tag = models.ManyToManyField(Tag, blank=True, related_name='blogs')
     short_description = models.TextField(blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
+    description = HTMLField(blank=True, null=True)
     thumbnail = models.ImageField(upload_to='post', null=True, blank=True)
     keywords = models.TextField(blank=True, null=True)
     is_featured = models.BooleanField(default=True)

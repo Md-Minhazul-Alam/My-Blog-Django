@@ -24,6 +24,7 @@
       ></button>
     </div>
     <div class="carousel-inner">
+      {% if sliders %}
       {% for slider in sliders %}
       <div class="carousel-item {% if forloop.first %}active{% endif %}">
         <a href="{% url 'blogDetails' slider.blog_slug %}">
@@ -39,6 +40,9 @@
         </div>
       </div>
       {% endfor %}
+      {% else %}
+      <h5>No sliders available </h5>
+      {% endif %}
     </div>
     <button
       class="carousel-control-prev"
