@@ -194,7 +194,8 @@ def add_comment(request, blog_slug):
             messages.error(request, 'Please fill all the fields')
     return redirect('blogDetails', blog_slug=blog_slug)
 
-
+@csrf_exempt
+def verify_comment_owner(request):
     if request.method == 'POST':
         try:
             data = json.loads(request.body.decode('utf-8'))
@@ -208,8 +209,15 @@ def add_comment(request, blog_slug):
                 })
             
             comment = Comment.objects.get(id=comment_id, email=email, is_active=True)
-            comment.delete()
-            return JsonResponse({'success': True, 'message': 'Comment deleted successfully!'})
+            return JsonResponse({
+                'success': True,
+                'comment': {
+                    'id': comment.id,
+                    'name': comment.name,
+                    'email': comment.email,
+                    'comment': comment.comment
+                }
+            })
         except json.JSONDecodeError:
             return JsonResponse({
                 'success': False,
@@ -218,7 +226,7 @@ def add_comment(request, blog_slug):
         except Comment.DoesNotExist:
             return JsonResponse({
                 'success': False,
-                'message': 'You are not authorized to delete this comment.'
+                'message': 'Invalid email or comment not found.'
             })
         except Exception as e:
             return JsonResponse({
@@ -227,3 +235,41 @@ def add_comment(request, blog_slug):
             })
     
     return JsonResponse({'success': False, 'message': 'Invalid request method.'})
+
+@csrf_exempt
+def edit_comment(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body.decode('utf-8'))
+            comment_id = data.get('comment_id')
+            email = data.get('email')
+            new_comment = data.get('comment')
+            
+            if not comment_id or not email or not new_comment:
+                return JsonResponse({
+                    'success': False,
+                    'message': 'All fields are required.'
+                })
+            
+            comment = Comment.objects.get(id=comment_id, email=email, is_active=True)
+            comment.comment = new_comment
+            comment.save()
+            return JsonResponse({'success': True, 'message': 'Comment updated successfully!'})
+        except json.JSONDecodeError:
+            return JsonResponse({
+                'success': False,
+                'message': 'Invalid JSON data.'
+            })
+        except Comment.DoesNotExist:
+            return JsonResponse({
+                'success': False,
+                'message': 'You are not authorized to edit this comment.'
+            })
+        except Exception as e:
+            return JsonResponse({
+                'success': False,
+                'message': f'An error occurred: {str(e)}'
+            })
+    
+    return JsonResponse({'success': False, 'message': 'Invalid request method.'})
+

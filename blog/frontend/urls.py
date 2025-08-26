@@ -9,5 +9,7 @@ urlpatterns = [
     path('search-blogs/', views.searchList, name='searchList'), 
     # Comments Path
     path('blog/<slug:blog_slug>/add-comment/', views.add_comment, name='add_comment'),
+    path('verify-comment-owner/', views.verify_comment_owner, name='verify_comment_owner'),
+    path('edit-comment/', views.edit_comment, name='edit_comment'),
     
 ]

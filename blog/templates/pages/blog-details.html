@@ -35,24 +35,14 @@
                     {{ blogDetails.description | safe }}
                    </div>
                 </div>
-                <div class="blog-tags">
-                    <strong>Tags:</strong>
-                    {% for tag in tags %}
-                        <a href="#" class="badge bg-secondary">
-                            {{ tag.tag_name }}
-                        </a>
-                    {% empty %}
-                        <span>No tags</span>
-                    {% endfor %}
-                </div>
                 <hr />
                  <!-- Comment Section -->
                 <div class="comment-section">
                    <div class="comments">
-                      <!-- Show Comments Number -->
+                      <!-- Updated to show dynamic comment count and real comments -->
                       <h1 class="mb-2">Comments ({{ comments.count }})</h1>
                       
-                      <!-- Notification -->
+                      <!-- Display Messages -->
                       {% if messages %}
                           {% for message in messages %}
                               <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
@@ -63,14 +53,13 @@
                       {% endif %}
                       
                       <ul class="list-unstyled" id="comments-list">
-                         <!-- View Comments -->
+                         <!-- Loop through actual comments from database -->
                          {% for comment in comments %}
                          <li class="mb-2 comment-card p-2 bg-light rounded-3" data-comment-id="{{ comment.id }}">
                             <div class="d-flex">
-                                {% load static %}
                                <img
                                   class="avatar"
-                                  src="{% static 'frontend/assets/image/user.jpg' %}"
+                                  src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
                                   alt=""
                                   style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px;"
                                   />
@@ -85,7 +74,7 @@
                                            {% endif %}
                                         </div>
                                      </div>
-                                     <!-- Edit and delete buttons -->
+                                     <!-- Added edit and delete buttons -->
                                      <div class="dropdown">
                                         <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                            Actions
@@ -108,7 +97,7 @@
                       </ul>
                    </div>
                    <hr />
-                   <!-- Comment Form -->
+                   <!-- Updated comment form to work with Django -->
                    <h3 class="mb-3">Leave a Comment:</h3>
                    <form method="post" action="{% url 'add_comment' blogDetails.blog_slug %}">
                        {% csrf_token %}
@@ -133,7 +122,7 @@
                              placeholder="Enter your email address"
                              required
                              />
-                          <div class="form-text">Your email will not be disclosed.</div>
+                          <div class="form-text">Your email will not be displayed publicly and is only used for comment management.</div>
                        </div>
                        <div class="mb-3">
                           <label for="comment" class="form-label">Comment *</label>
@@ -171,66 +160,60 @@
     </div>
  </main>
 
- <!-- Email verification -->
+<!-- Added modals and JavaScript for comment management -->
+<!-- Email Verification Modal -->
 <div class="modal fade" id="emailVerificationModal" tabindex="-1">
-   <div class="modal-dialog">
-       <div class="modal-content">
-           <div class="modal-header">
-               <h5 class="modal-title">Verify Your Email</h5>
-               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-           </div>
-           <div class="modal-body">
-               <p>Please enter your email address to verify that you own this comment:</p>
-               <div class="mb-3">
-                   <label for="verifyEmail" class="form-label">Email Address</label>
-                   <input type="email" class="form-control" id="verifyEmail" placeholder="Enter your email">
-               </div>
-               <div id="verificationError" class="alert alert-danger d-none"></div>
-           </div>
-           <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-               <button type="button" class="btn btn-primary" id="verifyEmailBtn">Verify</button>
-           </div>
-       </div>
-   </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Verify Your Email</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Please enter your email address to verify that you own this comment:</p>
+                <div class="mb-3">
+                    <label for="verifyEmail" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="verifyEmail" placeholder="Enter your email">
+                </div>
+                <div id="verificationError" class="alert alert-danger d-none"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="verifyEmailBtn">Verify</button>
+            </div>
+        </div>
+    </div>
 </div>
 
+<!-- Edit Comment Modal -->
+<div class="modal fade" id="editCommentModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Comment</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="editCommentText" class="form-label">Comment</label>
+                    <textarea class="form-control" id="editCommentText" rows="4"></textarea>
+                </div>
+                <div id="editError" class="alert alert-danger d-none"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="saveEditBtn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-
-<style>
-/* Comment style */
-.avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 15px;
-    object-fit: cover;
-}
-
-.comment-card {
-    border: 1px solid #e9ecef;
-    transition: box-shadow 0.2s ease;
-}
-
-.comment-card:hover {
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.comment-body {
-    line-height: 1.6;
-    word-wrap: break-word;
-}
-
-.dropdown-toggle::after {
-    font-size: 0.8em;
-}
-</style>
 <script>
- let currentCommentId = null;
+let currentCommentId = null;
 let currentAction = null;
 let verifiedEmail = null;
 
-// Edit comment
+//  Click edit comment
 document.addEventListener('click', function(e) {
     if (e.target.classList.contains('edit-comment')) {
         e.preventDefault();
@@ -251,7 +234,117 @@ function showEmailVerification() {
     document.getElementById('verifyEmail').value = '';
     document.getElementById('verificationError').classList.add('d-none');
     new bootstrap.Modal(document.getElementById('emailVerificationModal')).show();
-}  
+}
+
+// Email verify
+document.getElementById('verifyEmailBtn').addEventListener('click', function() {
+    const email = document.getElementById('verifyEmail').value;
+    
+    if (!email) {
+        showError('verificationError', 'Please enter your email address.');
+        return;
+    }
+    
+    fetch('/verify-comment-owner/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            comment_id: currentCommentId,
+            email: email
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            verifiedEmail = email;
+            bootstrap.Modal.getInstance(document.getElementById('emailVerificationModal')).hide();
+            
+            if (currentAction === 'edit') {
+                showEditModal(data.comment);
+            } else if (currentAction === 'delete') {
+                deleteComment();
+            }
+        } else {
+            showError('verificationError', data.message || 'You are not authorized.');
+        }
+    })
+    .catch(error => {
+        showError('verificationError', 'An error occurred. Please try again.');
+    });
+});
+
+function showEditModal(comment) {
+    document.getElementById('editCommentText').value = comment.comment;
+    document.getElementById('editError').classList.add('d-none');
+    new bootstrap.Modal(document.getElementById('editCommentModal')).show();
+}
+
+// Save edit
+document.getElementById('saveEditBtn').addEventListener('click', function() {
+    const newComment = document.getElementById('editCommentText').value;
+    
+    if (!newComment.trim()) {
+        showError('editError', 'Comment cannot be empty.');
+        return;
+    }
+    
+    fetch('/edit-comment/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            comment_id: currentCommentId,
+            email: verifiedEmail,
+            comment: newComment
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Update the comment
+            document.getElementById('comment-text-' + currentCommentId).textContent = newComment;
+            bootstrap.Modal.getInstance(document.getElementById('editCommentModal')).hide();
+            showSuccessMessage('Comment updated successfully!');
+        } else {
+            showError('editError', data.message || 'Failed to update.');
+        }
+    })
+    .catch(error => {
+        showError('editError', 'An error occurred. Please try again.');
+    });
+});
+
+function showError(elementId, message) {
+    const errorElement = document.getElementById(elementId);
+    errorElement.textContent = message;
+    errorElement.classList.remove('d-none');
+}
+
+function showSuccessMessage(message) {
+    const alertDiv = document.createElement('div');
+    alertDiv.className = 'alert alert-success alert-dismissible fade show';
+    alertDiv.innerHTML = `
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+    
+    const commentsSection = document.querySelector('.comments');
+    commentsSection.insertBefore(alertDiv, commentsSection.firstChild);
+    
+    // Auto close after 3 seconds
+    setTimeout(() => {
+        if (alertDiv.parentNode) {
+            alertDiv.remove();
+        }
+    }, 3000);
+}
 </script>
+
+<style>
+
+</style>
 
 {% endblock %}
