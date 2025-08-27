@@ -104,6 +104,8 @@ def blogDetails(request, blog_slug):
     # View Count
     Blog.objects.filter(pk=details.pk).update(views=F('views') + 1)
     details.refresh_from_db()
+    # Most Viewed Blogs
+    most_viewed = Blog.objects.filter(is_active=True).order_by('-views')[:5]
 
     # Get Comments
     comments = Comment.objects.filter(blog=details, is_active=True)
@@ -119,6 +121,7 @@ def blogDetails(request, blog_slug):
         'blogDetails': details,
         'comments': comments,
         'tags': tags, 
+        'most_viewed': most_viewed,
     })
 
 # Page
