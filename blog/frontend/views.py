@@ -195,6 +195,7 @@ def add_comment(request, blog_slug):
             messages.error(request, 'Please fill all the fields')
     return redirect('blogDetails', blog_slug=blog_slug)
 
+# Verify Comment
 @csrf_exempt
 def verify_comment_owner(request):
     if request.method == 'POST':
@@ -237,6 +238,7 @@ def verify_comment_owner(request):
     
     return JsonResponse({'success': False, 'message': 'Invalid request method.'})
 
+# Edit Comment
 @csrf_exempt
 def edit_comment(request):
     if request.method == 'POST':
@@ -265,6 +267,42 @@ def edit_comment(request):
             return JsonResponse({
                 'success': False,
                 'message': 'You are not authorized to edit this comment.'
+            })
+        except Exception as e:
+            return JsonResponse({
+                'success': False,
+                'message': f'An error occurred: {str(e)}'
+            })
+    
+    return JsonResponse({'success': False, 'message': 'Invalid request method.'})
+
+# Delete Comment
+@csrf_exempt
+def delete_comment(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body.decode('utf-8'))
+            comment_id = data.get('comment_id')
+            email = data.get('email')
+            
+            if not comment_id or not email:
+                return JsonResponse({
+                    'success': False,
+                    'message': 'Comment ID and email are required.'
+                })
+            
+            comment = Comment.objects.get(id=comment_id, email=email, is_active=True)
+            comment.delete()
+            return JsonResponse({'success': True, 'message': 'Comment deleted successfully!'})
+        except json.JSONDecodeError:
+            return JsonResponse({
+                'success': False,
+                'message': 'Invalid JSON data.'
+            })
+        except Comment.DoesNotExist:
+            return JsonResponse({
+                'success': False,
+                'message': 'You are not authorized to delete this comment.'
             })
         except Exception as e:
             return JsonResponse({

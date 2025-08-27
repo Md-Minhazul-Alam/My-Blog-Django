@@ -11,5 +11,6 @@ urlpatterns = [
     path('blog/<slug:blog_slug>/add-comment/', views.add_comment, name='add_comment'),
     path('verify-comment-owner/', views.verify_comment_owner, name='verify_comment_owner'),
     path('edit-comment/', views.edit_comment, name='edit_comment'),
+    path('delete-comment/', views.delete_comment, name='delete_comment'),
     
 ]
