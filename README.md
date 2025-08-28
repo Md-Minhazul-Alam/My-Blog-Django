@@ -106,12 +106,14 @@ This keeps the design **clean, accessible, and device-consistent**.
 ## Wireframes
 No wireframes were formally designed. Instead, development revolves around direct responsive layout building.
 
-| Desktop | Mobile | Tablet |
-| --- | --- | --- |
-| Home | ![screenshot](/blog/static/frontend/screenshot/desktop/home-page.png) | ![screenshot](/blog/static/frontend/screenshot/mobile/home-page.png) | ![screenshot](/blog/static/frontend/screenshot/tablet/home-page.png) |
-| Category | ![screenshot](/blog/static/frontend/screenshot/desktop/category-page.png) | ![screenshot](/blog/static/frontend/screenshot/mobile/category-page.png) | ![screenshot](/blog/static/frontend/screenshot/tablet/category-page.png) |
-| Blog Details | ![screenshot](/blog/static/frontend/screenshot/desktop/blog-details.png) | ![screenshot](/blog/static/frontend/screenshot/mobile/blog-details.png) | ![screenshot](/blog/static/frontend/screenshot/tablet/blog-details.png) |
-| Page | ![screenshot](/blog/static/frontend/screenshot/desktop/page.png) | ![screenshot](/blog/static/frontend/screenshot/mobile/page.png) | ![screenshot](/blog/static/frontend/screenshot/tablet/page.png) |
+## Screenshots
+
+| Page         | Desktop                                                                 | Mobile                                                                 | Tablet                                                                 |
+|--------------|-------------------------------------------------------------------------|------------------------------------------------------------------------|------------------------------------------------------------------------|
+| Home         | ![screenshot](/blog/static/frontend/screenshot/desktop/home-page.png)   | ![screenshot](/blog/static/frontend/screenshot/mobile/home-page.png)   | ![screenshot](/blog/static/frontend/screenshot/tablet/home-page.png)   |
+| Category     | ![screenshot](/blog/static/frontend/screenshot/desktop/category-page.png)| ![screenshot](/blog/static/frontend/screenshot/mobile/category-page.png)| ![screenshot](/blog/static/frontend/screenshot/tablet/category-page.png)|
+| Blog Details | ![screenshot](/blog/static/frontend/screenshot/desktop/blog-details.png)| ![screenshot](/blog/static/frontend/screenshot/mobile/blog-details.png)| ![screenshot](/blog/static/frontend/screenshot/tablet/blog-details.png)|
+| Page         | ![screenshot](/blog/static/frontend/screenshot/desktop/page.png)        | ![screenshot](/blog/static/frontend/screenshot/mobile/page.png)        | ![screenshot](/blog/static/frontend/screenshot/tablet/page.png)        |
 
 ---
 
