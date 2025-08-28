@@ -8,9 +8,9 @@
     {% if editors %}
     {% for editor in editors %}
     <div class="most-viewed-item mb-3">
-       <div class="most-viewed-number">01</div>
+       <div class="most-viewed-number">{{ forloop.counter|stringformat:"02d" }}</div>
        <div class="most-viewed-content">
-        <a href="#">
+        <a href="{% url 'blogDetails' editor.blog_slug %}">
             <h5>{{ editor.blog_name }}</h5>
         </a>
           <p>

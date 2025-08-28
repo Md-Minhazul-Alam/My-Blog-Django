@@ -102,3 +102,4 @@ This keeps the design **clean, accessible, and device-consistent**.
 - Icons: Font Awesome + SVG for social and UI icons  
 
 ---
+
