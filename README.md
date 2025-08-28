@@ -103,3 +103,59 @@ This keeps the design **clean, accessible, and device-consistent**.
 
 ---
 
+## Wireframes
+No wireframes were formally designed. Instead, development revolves around direct responsive layout building.
+
+| Desktop | Mobile | Tablet |
+| --- | --- | --- |
+| Home | ![screenshot](/blog/static/frontend/screenshot/desktop/home-page.png) | ![screenshot](/blog/static/frontend/screenshot/mobile/home-page.png) | ![screenshot](/blog/static/frontend/screenshot/tablet/home-page.png) |
+| Category | ![screenshot](/blog/static/frontend/screenshot/desktop/category-page.png) | ![screenshot](/blog/static/frontend/screenshot/mobile/category-page.png) | ![screenshot](/blog/static/frontend/screenshot/tablet/category-page.png) |
+| Blog Details | ![screenshot](/blog/static/frontend/screenshot/desktop/blog-details.png) | ![screenshot](/blog/static/frontend/screenshot/mobile/blog-details.png) | ![screenshot](/blog/static/frontend/screenshot/tablet/blog-details.png) |
+| Page | ![screenshot](/blog/static/frontend/screenshot/desktop/page.png) | ![screenshot](/blog/static/frontend/screenshot/mobile/page.png) | ![screenshot](/blog/static/frontend/screenshot/tablet/page.png) |
+
+---
+
+## User Stories
+| Target | Expectation | Outcome |
+| --- | --- | ---
+| As a visitor | I would love to see blogs by category | So that I can easily find blogs of my interest |
+| As a visitor | I woild also like to see most viewed or editor's choice posts | So I can find popular or recommended content
+| As a user | I want to post a comment and have the ability to edit/delete them | So that I can comment on posts in my own name and edit/delete them if requires |
+| As an admin | I want to post, edit, and remove posts | So that I can manage site content effectively |
+
+---
+
+## Features
+| Feature | Notes | Screenshot |
+| --- | --- | --- |
+| Navbar | Adaptive navbar with sidebar toggle on mobile, logo, categories, search, and social icons | ![screenshot](/blog/static/frontend/features/navbar.png) |
+| Blog Slider | Displays latest/featured posts with images | ![screenshot](/blog/static/frontend/features/sliders.png) |
+| Category Sections | Admin-controlled category blocks on home page | ![screenshot](/blog/static/frontend/features/category-section.png) |
+| Editor's Choice | Manually chosen featured content | ![screenshot](/blog/static/frontend/features/editors-choice.png) |
+| Most Viewed | Posts sorted by view count | ![screenshot](/blog/static/frontend/features/most-viewed.png)
+| Blog Details | Full page view with comments, related categories, and sidebar | ![screenshot](/blog/static/frontend/features/blog-details.png) |
+| Comment System | Users can add, edit, or delete comments through email verification | ![screenshot](/blog/static/frontend/features/comment-section.png) |
+| Footer | Quick links, about, and social icons included | ![screenshot](/blog/static/frontend/features/footer.png) |
+
+---
+
+## Future Features
+- Dark Mode toggle  
+- User authentication system (login/register)  
+- Tag filtering for blogs  
+- Comment upvote/downvote system  
+
+---
+
+## Tools & Technologies
+| Tool / Tech | Use |
+| --- | --- |
+| Django | Backend framework (Python) |
+| MySQL | Posts, categories, tags, comments database |
+| HTML / CSS / Bootstrap | Frontend styling |
+| JavaScript | Custom interactivity scripts (search modal, sidebar, etc.) |
+| Git & GitHub | Version control and hosting |
+| VSCode | Local development |
+| Font Awesome | Icons |
+| [HackMD](https://hackmd.io/) | For README/TESTING documentation |
+
