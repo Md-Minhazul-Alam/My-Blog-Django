@@ -7,7 +7,7 @@ Developer: Md Minhazul Alam ([Md-Minhazul-Alam](https://github.com/Md-Minhazul-A
 [![GitHub repo size](https://img.shields.io/github/repo-size/Md-Minhazul-Alam/My-Blog-Django)](https://github.com/Md-Minhazul-Alam/My-Blog-Django)
 
 I’m Md Minhazul Alam, and this is my **third project** as part of my journey into **full-stack development programme**.
-The project is an **data-driven blogging platform** developed with **Django (Python)** as the backend and a **responsive frontend** developed in HTML, CSS, Bootstrap, and custom JavaScript.
+The project is an **data-driven blogging platform** developed with **Django (Python)** as the backend and a **responsive frontend** developed in HTML, CSS, Bootstrap and custom JavaScript.
 
 It highlights my ability to model, develop CRUD, and map backend code to a clean, user-friendly interface.
 The objective was to be **simple, responsive, and accessible** and show hands-on Python + Django development capability.
@@ -27,7 +27,7 @@ This blog site showcases my backend abilities while presenting a responsive, int
 
 **Business Goals**  
 - Demonstrate Django development skills
-- Showcase a project that has real-world blog features
+- Showcase a project that has real world blog features
 - Act as an academic and portfolio piece
 
 ---
@@ -98,7 +98,7 @@ This keeps the design **clean, accessible, and device-consistent**.
 ---
 
 ## Typography
-- Fonts: System UI → Arial / Sans-serif fallback  
+- Fonts: System UI → Arial, Helvetica Neue, Helvetica / Sans-serif fallback  
 - Icons: Font Awesome + SVG for social and UI icons  
 
 ---
@@ -161,3 +161,56 @@ No wireframes were formally designed. Instead, development revolves around direc
 | Font Awesome | Icons |
 | [HackMD](https://hackmd.io/) | For README/TESTING documentation |
 
+
+---
+
+## Agile Development Process
+### GitHub Projects
+Used for Kanban style task management with epics and issues.  
+
+### GitHub Issues
+All errors and improvements were logged here, including Django errors, URL mismatches, and JavaScript bugs.  
+
+### MoSCoW Prioritization
+- **Must Have**: CRUD for posts and comments  
+- **Should Have**: Responsive sidebar and search modal  
+- **Could Have**: Analytics for most viewed posts  
+- **Won’t Have**: User login system (future feature)  
+
+---
+
+## Testing
+- Reserved space for documenting errors and screenshots in [TESTING.md](TESTING.md).  
+- Responsiveness tested across desktop, tablet, and mobile.  
+
+---
+
+## Deployment
+- We couldn't deploy yet as the free tier isn't available.
+
+### Local vs Deployment
+No major differences between local and deployed versions.  
+
+---
+
+## Credits
+### Content
+| Source | Notes |
+| --- | --- |
+| ChatGPT | Helped debug and explain Django/JS issues |
+| Claude AI | Helped debug and explain Django/JS issues |
+| W3Schools | References for CSS/JS |
+| Django Docs | Backend reference |
+
+### Media
+- [Pexels](https://pexels.com) → Stock images  
+- [BBC](https://bbc.com) → Blog images and Content
+- [Travel to Motom](https://www.traveltomtom.net/) → Blog images and Content
+- [Heather Jasper](https://heatherjasper.com/) → Blog images and Content
+- [Font Awesome](https://fontawesome.com) → Icons  
+
+### Acknowledgements
+- Code Institute resources, Slack and Discord community for inspiration.  
+- Online forums for Django troubleshooting.  
+
+---
