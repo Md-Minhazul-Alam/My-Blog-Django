@@ -52,11 +52,11 @@ Audited with Lighthouse for performance, accessibility, SEO, and best practices.
 
 | Feature        | Expectation                        | Test                           | Result                 | Screenshot                                                                                  |
 | -------------- | ---------------------------------- | ------------------------------ | ---------------------- | ------------------------------------------------------------------------------------------- |
-| Navigation bar | Adaptive on all devices            | Tested desktop, tablet, mobile | Works consistently     | ![screenshot](/blog/static/frontend/features/navbar.png) ![screenshot](/blog/static/frontend/features/mobile-navbar.png) |
-| Comment form   | Blocks empty or invalid submission | Submitted empty fields         | Error prompt displayed | ![screenshot](/blog/static/frontend/features/comment-validate.png)                                           |
-| Blog slider    | Shows latest posts        | Checked posts updated          | Works as expected      | ![screenshot](/blog/static/frontend/features/sliders.png)                                                    |
-| Search modal   | Opens and filters content          | Tested search terms            | Results correct        | ![screenshot](/blog/static/frontend/features/search-model.png) ![screenshot](/blog/static/frontend/features/search-result.png) |
-| External links | Open in new tab                    | Clicked social links           | Works as expected      | ![screenshot](/blog/static/frontend/features/quick-link.png) ![screenshot](/blog/static/frontend/features/quick-link-test.png) |
+| Navigation bar | Adaptive on all devices            | Tested desktop, tablet, mobile | Works consistently     | ![screenshot](/static/frontend/features/navbar.png) ![screenshot](/static/frontend/features/mobile-navbar.png) |
+| Comment form   | Blocks empty or invalid submission | Submitted empty fields         | Error prompt displayed | ![screenshot](/static/frontend/features/comment-validate.png)                                           |
+| Blog slider    | Shows latest posts        | Checked posts updated          | Works as expected      | ![screenshot](/static/frontend/features/sliders.png)                                                    |
+| Search modal   | Opens and filters content          | Tested search terms            | Results correct        | ![screenshot](/static/frontend/features/search-model.png) ![screenshot](/static/frontend/features/search-result.png) |
+| External links | Open in new tab                    | Clicked social links           | Works as expected      | ![screenshot](/static/frontend/features/quick-link.png) ![screenshot](/static/frontend/features/quick-link-test.png) |
 
 ---
 
