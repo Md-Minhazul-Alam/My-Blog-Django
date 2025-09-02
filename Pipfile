@@ -5,12 +5,12 @@ name = "pypi"
 
 [packages]
 django-tinymce = "*"
-python-dotenv = "*"
 pillow = "*"
 requests = "*"
 psycopg = {extras = ["pool", "binary"], version = "*"}
 django = "*"
 dj-database-url = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
