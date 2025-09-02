@@ -21,10 +21,10 @@ Tested on desktop, tablet, and mobile devices.
 
 | Page         | Desktop                                                                 | Mobile                                                                 | Tablet                                                                 |
 |--------------|-------------------------------------------------------------------------|------------------------------------------------------------------------|------------------------------------------------------------------------|
-| Home         | ![screenshot](/blog/static/frontend/screenshot/desktop/home-page.png)   | ![screenshot](/blog/static/frontend/screenshot/mobile/home-page.png)   | ![screenshot](/blog/static/frontend/screenshot/tablet/home-page.png)   |
-| Category     | ![screenshot](/blog/static/frontend/screenshot/desktop/category-page.png)| ![screenshot](/blog/static/frontend/screenshot/mobile/category-page.png)| ![screenshot](/blog/static/frontend/screenshot/tablet/category-page.png)|
-| Blog Details | ![screenshot](/blog/static/frontend/screenshot/desktop/blog-details.png)| ![screenshot](/blog/static/frontend/screenshot/mobile/blog-details.png)| ![screenshot](/blog/static/frontend/screenshot/tablet/blog-details.png)|
-| Page         | ![screenshot](/blog/static/frontend/screenshot/desktop/page.png)        | ![screenshot](/blog/static/frontend/screenshot/mobile/page.png)        | ![screenshot](/blog/static/frontend/screenshot/tablet/page.png)        |
+| Home         | ![screenshot](/static/frontend/screenshot/desktop/home-page.png)   | ![screenshot](/static/frontend/screenshot/mobile/home-page.png)   | ![screenshot](/static/frontend/screenshot/tablet/home-page.png)   |
+| Category     | ![screenshot](/static/frontend/screenshot/desktop/category-page.png)| ![screenshot](/static/frontend/screenshot/mobile/category-page.png)| ![screenshot](/static/frontend/screenshot/tablet/category-page.png)|
+| Blog Details | ![screenshot](/static/frontend/screenshot/desktop/blog-details.png)| ![screenshot](/static/frontend/screenshot/mobile/blog-details.png)| ![screenshot](/static/frontend/screenshot/tablet/blog-details.png)|
+| Page         | ![screenshot](/static/frontend/screenshot/desktop/page.png)        | ![screenshot](/static/frontend/screenshot/mobile/page.png)        | ![screenshot](/static/frontend/screenshot/tablet/page.png)        |
 
 ---
 
@@ -34,10 +34,10 @@ Tested on Chrome, Firefox, and Safari.
 
 | Page        | Chrome                                         | Firefox                                       | Safari                                         | Notes             |
 | ----------- | ---------------------------------------------- | --------------------------------------------- | ---------------------------------------------- | ----------------- |
-| Home        | ![screenshot](/blog/static/frontend/testing/browser/chrome/chrome%20home.png)   | ![screenshot](/blog/static/frontend/testing/browser/firefox/firefox%20home.png)    | ![screenshot](/blog/static/frontend/testing/browser/safari/safari%20home.png)   | Works as expected |
-| Category    | ![screenshot](/blog/static/frontend/testing/browser/chrome/chrome%20category.png)    | ![screenshot](/blog/static/frontend/testing/browser/firefox/firefox%20category.png)     | ![screenshot](/blog/static/frontend/testing/browser/safari/safari%20category.png)    | Works as expected |
-| Blog Detail | ![screenshot](/blog/static/frontend/testing/browser/chrome/chrome%20blog%20details.png) | ![screenshot](/blog/static/frontend/testing/browser/firefox/firefox%20blog%20details.png) | ![screenshot](/blog/static/frontend/testing/browser/safari/safari%20blog%20details.png) | Works as expected |
-| About       | ![screenshot](/blog/static/frontend/testing/browser/chrome/chrome%20about%20us.png)  | ![screenshot](/blog/static/frontend/testing/browser/firefox/firefox%20about%20us.png)   | ![screenshot](/blog/static/frontend/testing/browser/safari/safari%20about%20us.png)  | Works as expected |
+| Home        | ![screenshot](/static/frontend/testing/browser/chrome/chrome%20home.png)   | ![screenshot](/static/frontend/testing/browser/firefox/firefox%20home.png)    | ![screenshot](/static/frontend/testing/browser/safari/safari%20home.png)   | Works as expected |
+| Category    | ![screenshot](/static/frontend/testing/browser/chrome/chrome%20category.png)    | ![screenshot](/static/frontend/testing/browser/firefox/firefox%20category.png)     | ![screenshot](/static/frontend/testing/browser/safari/safari%20category.png)    | Works as expected |
+| Blog Detail | ![screenshot](/static/frontend/testing/browser/chrome/chrome%20blog%20details.png) | ![screenshot](/static/frontend/testing/browser/firefox/firefox%20blog%20details.png) | ![screenshot](/static/frontend/testing/browser/safari/safari%20blog%20details.png) | Works as expected |
+| About       | ![screenshot](/static/frontend/testing/browser/chrome/chrome%20about%20us.png)  | ![screenshot](/static/frontend/testing/browser/firefox/firefox%20about%20us.png)   | ![screenshot](/static/frontend/testing/browser/safari/safari%20about%20us.png)  | Works as expected |
 
 ---
 
@@ -64,10 +64,10 @@ Audited with Lighthouse for performance, accessibility, SEO, and best practices.
 
 | Target  | Expectation                 | Outcome                                 | Screenshot                                 |
 | ------- | --------------------------- | --------------------------------------- | ------------------------------------------ |
-| Visitor | View posts by category      | Can browse category pages               | ![screenshot](/blog/static/frontend/features/category-filter.png)  |
-| Visitor | See most viewed/editor's choice posts | most viewed/editor's choice displayed                | ![screenshot](/blog/static/frontend/features/most-viewed.png) ![screenshot](/blog/static/frontend/features/editors-choice.png) |
-| User    | Comment with edit/delete    | Works with email verification           | ![screenshot](/blog/static/frontend/features/edit-delete.png) ![screenshot](/blog/static/frontend/features/edit-form.png) |
-| Admin   | CRUD posts                  | Create, edit, remove posts successfully | ![screenshot](/blog/static/frontend/features/create.png) ![screenshot](/blog/static/frontend/features/edit-update-delete.png) |
+| Visitor | View posts by category      | Can browse category pages               | ![screenshot](/static/frontend/features/category-filter.png)  |
+| Visitor | See most viewed/editor's choice posts | most viewed/editor's choice displayed                | ![screenshot](/static/frontend/features/most-viewed.png) ![screenshot](/static/frontend/features/editors-choice.png) |
+| User    | Comment with edit/delete    | Works with email verification           | ![screenshot](/static/frontend/features/edit-delete.png) ![screenshot](/static/frontend/features/edit-form.png) |
+| Admin   | CRUD posts                  | Create, edit, remove posts successfully | ![screenshot](/static/frontend/features/create.png) ![screenshot](/static/frontend/features/edit-update-delete.png) |
 ---
 
 ## Bugs
