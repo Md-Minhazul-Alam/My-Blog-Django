@@ -130,14 +130,14 @@ No wireframes were formally designed. Instead, development revolves around direc
 ## Features
 | Feature | Notes | Screenshot |
 | --- | --- | --- |
-| Navbar | Adaptive navbar with sidebar toggle on mobile, logo, categories, search, and social icons | ![screenshot](/blog/static/frontend/features/navbar.png) |
-| Blog Slider | Displays latest/featured posts with images | ![screenshot](/blog/static/frontend/features/sliders.png) |
-| Category Sections | Admin-controlled category blocks on home page | ![screenshot](/blog/static/frontend/features/category-section.png) |
-| Editor's Choice | Manually chosen featured content | ![screenshot](/blog/static/frontend/features/editors-choice.png) |
-| Most Viewed | Posts sorted by view count | ![screenshot](/blog/static/frontend/features/most-viewed.png)
-| Blog Details | Full page view with comments, related categories, and sidebar | ![screenshot](/blog/static/frontend/features/blog-details.png) |
-| Comment System | Users can add, edit, or delete comments through email verification | ![screenshot](/blog/static/frontend/features/comment-section.png) |
-| Footer | Quick links, about, and social icons included | ![screenshot](/blog/static/frontend/features/footer.png) |
+| Navbar | Adaptive navbar with sidebar toggle on mobile, logo, categories, search, and social icons | ![screenshot](/static/frontend/features/navbar.png) |
+| Blog Slider | Displays latest/featured posts with images | ![screenshot](/static/frontend/features/sliders.png) |
+| Category Sections | Admin-controlled category blocks on home page | ![screenshot](/static/frontend/features/category-section.png) |
+| Editor's Choice | Manually chosen featured content | ![screenshot](/static/frontend/features/editors-choice.png) |
+| Most Viewed | Posts sorted by view count | ![screenshot](/static/frontend/features/most-viewed.png)
+| Blog Details | Full page view with comments, related categories, and sidebar | ![screenshot](/static/frontend/features/blog-details.png) |
+| Comment System | Users can add, edit, or delete comments through email verification | ![screenshot](/static/frontend/features/comment-section.png) |
+| Footer | Quick links, about, and social icons included | ![screenshot](/static/frontend/features/footer.png) |
 
 ---
 
