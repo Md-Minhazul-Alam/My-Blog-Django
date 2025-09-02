@@ -1,0 +1,25 @@
+ <!-- Editor's Choice -->
+ <section class="most-viewed-section">
+    <div
+       class="d-flex justify-content-between align-items-center mb-4"
+       >
+       <h4>Editor's Choice</h4>
+    </div>
+    {% if editors %}
+    {% for editor in editors %}
+    <div class="most-viewed-item mb-3">
+       <div class="most-viewed-number">{{ forloop.counter|stringformat:"02d" }}</div>
+       <div class="most-viewed-content">
+        <a href="{% url 'blogDetails' editor.blog_slug %}">
+            <h5>{{ editor.blog_name }}</h5>
+        </a>
+          <p>
+            {{ editor.description | truncatewords:20}}
+          </p>
+       </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h5>No post available</h5>
+    {% endif %}
+ </section>

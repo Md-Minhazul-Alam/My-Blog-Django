@@ -4,11 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
+django-tinymce = "*"
+python-dotenv = "*"
 pillow = "*"
 requests = "*"
-pymysql = "*"
-django-tinymce = "*"
+psycopg = {extras = ["pool", "binary"], version = "*"}
+django = "*"
+dj-database-url = "*"
 
 [dev-packages]
 

@@ -12,8 +12,15 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
-import pymysql
-pymysql.install_as_MySQLdb()
+from dotenv import load_dotenv
+# import pymysql
+# import dotenv
+import dj_database_url
+
+load_dotenv()
+
+# dotenv.load_dotenv()  # load .env
+# pymysql.install_as_MySQLdb()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -87,17 +94,21 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'myblog',  # Your DB name
-        'USER': 'root',  # Your DB username
-        'PASSWORD': 'root',  # Your DB password
-        'HOST': '127.0.0.1',  # The MySQL host from cPanel
-        'PORT': '8889',  # MySQL default port
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'myblog',  # Your DB name
+#         'USER': 'root',  # Your DB username
+#         'PASSWORD': 'root',  # Your DB password
+#         'HOST': '127.0.0.1',  # The MySQL host from cPanel
+#         'PORT': '8889',  # MySQL default port
+#     }
+# }
 
+
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
