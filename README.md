@@ -110,10 +110,10 @@ No wireframes were formally designed. Instead, development revolves around direc
 
 | Page         | Desktop                                                                 | Mobile                                                                 | Tablet                                                                 |
 |--------------|-------------------------------------------------------------------------|------------------------------------------------------------------------|------------------------------------------------------------------------|
-| Home         | ![screenshot](/blog/static/frontend/screenshot/desktop/home-page.png)   | ![screenshot](/blog/static/frontend/screenshot/mobile/home-page.png)   | ![screenshot](/blog/static/frontend/screenshot/tablet/home-page.png)   |
-| Category     | ![screenshot](/blog/static/frontend/screenshot/desktop/category-page.png)| ![screenshot](/blog/static/frontend/screenshot/mobile/category-page.png)| ![screenshot](/blog/static/frontend/screenshot/tablet/category-page.png)|
-| Blog Details | ![screenshot](/blog/static/frontend/screenshot/desktop/blog-details.png)| ![screenshot](/blog/static/frontend/screenshot/mobile/blog-details.png)| ![screenshot](/blog/static/frontend/screenshot/tablet/blog-details.png)|
-| Page         | ![screenshot](/blog/static/frontend/screenshot/desktop/page.png)        | ![screenshot](/blog/static/frontend/screenshot/mobile/page.png)        | ![screenshot](/blog/static/frontend/screenshot/tablet/page.png)        |
+| Home         | ![screenshot](/static/frontend/screenshot/desktop/home-page.png)   | ![screenshot](/static/frontend/screenshot/mobile/home-page.png)   | ![screenshot](/static/frontend/screenshot/tablet/home-page.png)   |
+| Category     | ![screenshot](/static/frontend/screenshot/desktop/category-page.png)| ![screenshot](/static/frontend/screenshot/mobile/category-page.png)| ![screenshot](/static/frontend/screenshot/tablet/category-page.png)|
+| Blog Details | ![screenshot](/static/frontend/screenshot/desktop/blog-details.png)| ![screenshot](/static/frontend/screenshot/mobile/blog-details.png)| ![screenshot](/static/frontend/screenshot/tablet/blog-details.png)|
+| Page         | ![screenshot](/static/frontend/screenshot/desktop/page.png)        | ![screenshot](/static/frontend/screenshot/mobile/page.png)        | ![screenshot](/static/frontend/screenshot/tablet/page.png)        |
 
 ---
 
