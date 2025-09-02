@@ -32,6 +32,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["my-blog-django-mdao.onrender.com"]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://my-blog-django-mdao.onrender.com"
+]
 
 # Application definition
 
