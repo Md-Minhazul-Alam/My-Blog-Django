@@ -30,10 +30,10 @@ SECRET_KEY = 'django-insecure-gy(v$6nn2qc00p+f70g5swsr%@0u+t=z)sb2@6(1ax$g0l2ry8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["my-blog-django-mdao.onrender.com"]
+ALLOWED_HOSTS = ["minhazul-my-blog.zpos.top"]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://my-blog-django-mdao.onrender.com"
+    "https://minhazul-my-blog.zpos.top"
 ]
 
 # Application definition
