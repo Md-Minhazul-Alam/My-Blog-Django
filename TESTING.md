@@ -10,11 +10,11 @@ All HTML and Django template files were validated with [W3C HTML Validator](http
 
 | Page           | Template File                 | Screenshot                           |
 | -------------- | ---------------------------- | ------------------------------------ |
-| Home           | `templates/pages/index.html`        | ![Home](static/testing/html-home.PNG) |
-| Category       | `templates/pages/category.html`     | ![Category](static/testing/html-category.PNG) |
-| Blog Details   | `templates/pages/blog_detail.html`  | ![Blog Details](static/testing/html-blog-details.PNG) |
-| About          | `templates/pages/about.html`        | ![About](static/testing/html-page.PNG) |
-| Search         | `templates/pages/search.html`       | ![Search](static/testing/html-search.PNG) |
+| Home           | `templates/pages/index.html`        | ![Home](/static/testing/html-home.PNG) |
+| Category       | `templates/pages/category.html`     | ![Category](/static/testing/html-category.PNG) |
+| Blog Details   | `templates/pages/blog_detail.html`  | ![Blog Details](/static/testing/html-blog-details.PNG) |
+| About          | `templates/pages/about.html`        | ![About](/static/testing/html-page.PNG) |
+| Search         | `templates/pages/search.html`       | ![Search](/static/testing/html-search.PNG) |
 
 ### CSS Validation
 
