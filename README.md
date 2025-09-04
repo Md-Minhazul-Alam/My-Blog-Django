@@ -165,8 +165,12 @@ No wireframes were formally designed. Instead, development revolves around direc
 ---
 
 ## Agile Development Process
+
 ### GitHub Projects
-Used for Kanban style task management with epics and issues.  
+Used for Kanban style task management with epics and issues.
+
+![GitHub Projects](static/frontend/project.png)
+
 
 ### GitHub Issues
 All errors and improvements were logged here, including Django errors, URL mismatches, and JavaScript bugs.  
