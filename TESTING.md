@@ -24,6 +24,14 @@ The project uses a single global CSS file validated with [W3C CSS Validator](htt
 | --------------------------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------- |
 | `static/frontend/assets/css/style.css`  | `index.html`, `category.html`, `blog_detail.html`, `about.html`, `search.html` (all in `templates/pages/`) | ![CSS Validation](static/frontend/testing/css-validator.PNG) |
 
+### JS Validation  
+
+The project’s JavaScript was validated with [JSHint](https://jshint.com/).  
+
+| Location                  | File / Template                        | Screenshot                                         |  
+| -------------------------- | -------------------------------------- | ------------------------------------------------- |  
+| `static/frontend/assets/js` | `script.js` (global JavaScript file)   | ![script.js](/static/frontend/testing/script.PNG)  |  
+| `templates/pages`          | `blog_detail.html` (inline JavaScript) | ![Comments JS](/static/frontend/testing/comments.PNG) |  
 
 
 ---
