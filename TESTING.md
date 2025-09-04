@@ -18,6 +18,12 @@ All HTML and Django template files were validated with [W3C HTML Validator](http
 
 ### CSS Validation
 
+The project uses a single global CSS file validated with [W3C CSS Validator](https://jigsaw.w3.org/css-validator).
+
+| CSS File                                | Template Files                                                                                   | Screenshot                                         |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------- |
+| `static/frontend/assets/css/style.css`  | `index.html`, `category.html`, `blog_detail.html`, `about.html`, `search.html` (all in `templates/pages/`) | ![CSS Validation](static/frontend/testing/css-validator.PNG) |
+
 
 
 ---
