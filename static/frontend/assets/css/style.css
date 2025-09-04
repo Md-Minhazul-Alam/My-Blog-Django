@@ -284,6 +284,15 @@
   .breadcrumb{
     margin-top: 40px;
   }
+  }
+  .blog-image img {
+    max-width: 388px;
+    height: auto;
+  }
+  .blog-card-image img {
+     max-width: 160px;
+     height: auto;
+  }
 }
 @media (min-width: 769px) {
   .mobile-overlay {
