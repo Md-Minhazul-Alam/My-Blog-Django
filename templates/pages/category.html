@@ -5,6 +5,7 @@
 {% block content %}
 <!-- Breadcrumb -->
 <section class="breadcrumb bg-light pb-3">
+  <h2 class="visually-hidden">Breadcrumb</h2>
   <div class="container">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
@@ -32,8 +33,7 @@
                   {% if blog.thumbnail %}
                   <img
                     src="{{ blog.thumbnail.url }}"
-                    alt="{{ blog.blog_name }}"
-                  />
+                    alt="{{ blog.blog_name }}">
                   {% else %}
                   <img
                     src="{% static 'frontend/assets/image/default.png' %}"
