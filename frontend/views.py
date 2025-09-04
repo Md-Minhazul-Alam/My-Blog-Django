@@ -1,3 +1,4 @@
+from django.views.decorators.cache import cache_page
 from post.models import Category, Social, Blog, Page, CategoryBlog, Comment
 from django.shortcuts import render
 import requests 
@@ -9,7 +10,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 
-
+@cache_page(864000)
 # Home Page
 def HomePage(request):
     categoryMenu = Category.objects.all()
@@ -52,6 +53,7 @@ def HomePage(request):
         'sliders': sliders, 
     })
 
+@cache_page(864000)
 # Category Page    
 def CategoryPage(request, category_slug):
     # All Categories
@@ -124,6 +126,7 @@ def blogDetails(request, blog_slug):
         'most_viewed': most_viewed,
     })
 
+@cache_page(864000)
 # Page
 def WebsitePage(request, page_slug):
     # All Categories
