@@ -60,6 +60,15 @@ Tested on Chrome, Firefox, and Safari.
 
 Audited with Lighthouse for performance, accessibility, SEO, and best practices.
 
+| Page        | Desktop Screenshot                                                        | Mobile Screenshot                                                        |
+| ----------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Home        | ![Home Desktop](/static/frontend/testing/light-desktop-home.PNG)           | ![Home Mobile](/static/frontend/testing/light-mobile-home.PNG)           |
+| Category    | ![Category Desktop](/static/frontend/testing/light-desktop-category.PNG)   | ![Category Mobile](/static/frontend/testing/light-mobile-category.PNG)   |
+| Blog Detail | ![Blog Detail Desktop](/static/frontend/testing/light-desktop-blog-details.PNG) | ![Blog Detail Mobile](/static/frontend/testing/light-mobile-blog-details.PNG) |
+| About/Contact us/Privacy Policy       | ![About Desktop](/static/frontend/testing/light-desktop-page.PNG)          | ![About Mobile](/static/frontend/testing/light-mobile-page.PNG)          |
+| Search      | ![Search Desktop](/static/frontend/testing/light-desktop-search.PNG)       | ![Search Mobile](/static/frontend/testing/light-mobile-search.PNG)       |
+
+
 ---
 
 ## Defensive Programming
