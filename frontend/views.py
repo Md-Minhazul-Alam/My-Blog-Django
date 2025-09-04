@@ -12,7 +12,7 @@ from django.contrib import messages
 
 @cache_page(864000)
 # Home Page
-def HomePage(request):
+def home_page(request):
     categoryMenu = Category.objects.all()
     social = Social.objects.all()
     setting = Setting.objects.latest('id')
@@ -55,7 +55,7 @@ def HomePage(request):
 
 @cache_page(864000)
 # Category Page    
-def CategoryPage(request, category_slug):
+def category_page(request, category_slug):
     # All Categories
     categoryMenu = Category.objects.all()
     #  Social
@@ -87,7 +87,7 @@ def CategoryPage(request, category_slug):
     })
 
 # Blog Details
-def blogDetails(request, blog_slug):
+def blog_details(request, blog_slug):
     # All Categories
     categoryMenu = Category.objects.all()
     #  Social
@@ -128,7 +128,7 @@ def blogDetails(request, blog_slug):
 
 @cache_page(864000)
 # Page
-def WebsitePage(request, page_slug):
+def website_page(request, page_slug):
     # All Categories
     categoryMenu = Category.objects.all()
     #  Social
@@ -150,7 +150,7 @@ def WebsitePage(request, page_slug):
     })
 
 # Search Blogs
-def searchList(request):
+def search_list(request):
     # All Categories
     categoryMenu = Category.objects.all()
     #  Social
