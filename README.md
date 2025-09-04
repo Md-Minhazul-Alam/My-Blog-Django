@@ -191,13 +191,23 @@ All errors and improvements were logged here, including Django errors, URL misma
 
 ## Deployment
 
-- Free-tier deployment isn’t available on Heroku, so it wasn’t used.
-- Deployed on Render.com for testing, but the app may go into sleep mode according to Render policies.
-- During sleep mode, media files may not be visible until the app wakes up.
+- Free-tier deployment isn’t available on Heroku, so it wasn’t used.  
+- Deployed on Render.com for testing, but the app may go into sleep mode according to Render policies.  
+- During sleep mode, media files may not be visible until the app wakes up.  
 - Final deployment will be on a proper Python-based hosting for full functionality.
 
 ### Local vs Deployment
 - Minor differences may exist between the local and deployed versions.
+
+### Local Development
+
+#### Cloning
+1. Go to the GitHub repository.  
+2. Click the green "Code" button at the top and copy the URL using HTTPS, SSH, or GitHub CLI.  
+3. Open Terminal or Git Bash and navigate to your desired folder.  
+4. Run:  
+   ```bash
+   git clone <repository-url>
 
 ---
 
