@@ -169,7 +169,7 @@ No wireframes were formally designed. Instead, development revolves around direc
 ### GitHub Projects
 Used for Kanban style task management with epics and issues.
 
-![GitHub Projects](static/frontend/project.png)
+![GitHub Projects](static/frontend/project.PNG)
 
 
 ### GitHub Issues
