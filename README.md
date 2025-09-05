@@ -88,6 +88,14 @@ User navigation is mobile responsive with sidebar.
 
 ---
 
+### 6. Assets Structure
+**Admin and Frontend**  
+- I have two types of assets in this project. One is for admin and another for frontend. 
+- **Frontend Assets**: Here we have a assets file under fronted includes css, image and js file. 
+- **Reason of Frontend and Admin folder**: I have used two folders Admin and Frontend to clealy separate assets, such as- css, js and image.   
+
+---
+
 ## Colour Scheme
 - **Primary**: White (#FFFFFF)  
 - **Text**: Black (#000000)  
