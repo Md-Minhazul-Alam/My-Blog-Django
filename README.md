@@ -1,4 +1,4 @@
-# [My Blog Django](https://github.com/Md-Minhazul-Alam/My-Blog-Django)
+# [My Blog Django](https://minhazul-my-blog.zpos.top/)
 
 Developer: Md Minhazul Alam ([Md-Minhazul-Alam](https://github.com/Md-Minhazul-Alam))
 
