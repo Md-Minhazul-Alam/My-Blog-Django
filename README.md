@@ -96,6 +96,124 @@ User navigation is mobile responsive with sidebar.
 
 ---
 
+# Database Schema
+
+This project has two main apps: **website_settings** and **post**.
+
+---
+
+## App 1: Website Settings
+
+### Table: Setting
+| Column                | Type       | Notes                         |
+|-----------------------|-----------|-------------------------------|
+| id (PK)               | Integer   | Auto-generated primary key    |
+| site_name             | Char(200) | Website name                  |
+| site_tagline          | Char(200) | Tagline                       |
+| site_description      | Text      | Optional                      |
+| site_meta_keywords    | Text      | Optional                      |
+| site_meta_description | Text      | Optional                      |
+| logo                  | Image     | Upload to `/media/logo/`      |
+
+---
+
+## App 2: Post
+
+### Table: Category
+| Column        | Type       | Notes |
+|---------------|-----------|-------|
+| id (PK)       | Integer   | Auto-generated primary key |
+| category_name | Char(200) | Category title |
+| category_slug | Slug(200) | Unique, auto-generated |
+| is_active     | Boolean   | Default: True |
+
+---
+
+### Table: Tag
+| Column    | Type       | Notes |
+|-----------|-----------|-------|
+| id (PK)   | Integer   | Auto-generated primary key |
+| tag_name  | Char(200) | Tag title |
+| tag_slug  | Slug(200) | Unique, auto-generated |
+| is_active | Boolean   | Default: True |
+
+---
+
+### Table: Blog
+| Column            | Type         | Notes |
+|-------------------|-------------|-------|
+| id (PK)           | Integer     | Auto-generated primary key |
+| blog_name         | Char(200)   | Title of the blog post |
+| blog_slug         | Slug(200)   | Unique, auto-generated |
+| category_id (FK)  | ForeignKey  | → Category (nullable) |
+| tags (M2M)        | ManyToMany  | → Tag |
+| short_description | Text        | Optional |
+| description       | HTML/Text   | Rich content |
+| thumbnail         | Image       | Upload to `/media/post/` |
+| keywords          | Text        | Optional |
+| is_featured       | Boolean     | Default: True |
+| is_active         | Boolean     | Default: True |
+| views             | Integer     | Default: 0 |
+
+---
+
+### Table: Social
+| Column      | Type       | Notes |
+|-------------|-----------|-------|
+| id (PK)     | Integer   | Auto-generated primary key |
+| social_name | Char(200) | Name of social platform |
+| social_icon | Text      | Icon (SVG or class) |
+| social_link | Text      | URL link |
+| is_active   | Boolean   | Default: True |
+
+---
+
+### Table: Page
+| Column            | Type       | Notes |
+|-------------------|-----------|-------|
+| id (PK)           | Integer   | Auto-generated primary key |
+| page_name         | Char(200) | Page title |
+| page_slug         | Slug(200) | Unique, auto-generated |
+| description       | Text      | Optional |
+| meta_keywords     | Text      | Optional |
+| meta_description  | Text      | Optional |
+| is_active         | Boolean   | Default: True |
+
+---
+
+### Table: Comment
+| Column       | Type        | Notes |
+|--------------|------------|-------|
+| id (PK)      | Integer    | Auto-generated primary key |
+| blog_id (FK) | ForeignKey | → Blog (CASCADE delete) |
+| name         | Char(200)  | Commenter name |
+| email        | Email      | Commenter email |
+| comment      | Text       | Comment body |
+| created_at   | DateTime   | Default: now |
+| updated_at   | DateTime   | Auto updated |
+| is_active    | Boolean    | Default: True |
+
+---
+
+### Table: CategoryBlog
+| Column      | Type       | Notes |
+|-------------|-----------|-------|
+| id (PK)     | Integer   | Auto-generated primary key |
+| heading     | Char(255) | Section heading |
+| category_id (FK) | ForeignKey | → Category |
+| UNIQUE      | (category, heading) | Enforced |
+
+---
+
+## Relationships
+
+- **Blog → Category**: Many blogs can belong to one category.  
+- **Blog → Tag**: Many-to-many relationship.  
+- **Blog → Comment**: One blog can have many comments.  
+- **CategoryBlog → Category**: Each entry links a heading with one category.    
+
+---
+
 ## Colour Scheme
 - **Primary**: White (#FFFFFF)  
 - **Text**: Black (#000000)  
