@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Tag, Blog, Social, Page, CategoryBlog
+from .models import Category, Tag, Blog, Social, Page, CategoryBlog, Comment
 from websitesetting.models import Setting 
 
 # Register Category
@@ -31,7 +31,6 @@ class BlogAdmin(admin.ModelAdmin):
 
 admin.site.register(Blog, BlogAdmin)
 
-
 # Register Social
 class SocialAdmin(admin.ModelAdmin):
     list_display = ('social_name', 'social_link')
@@ -58,5 +57,12 @@ class CategoryBlogAdmin(admin.ModelAdmin):
     list_display = ('heading', 'category')
     search_fields = ('heading', 'category')
     
-
 admin.site.register(CategoryBlog, CategoryBlogAdmin)
+
+# Comments Register
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'blog', 'created_at', 'is_active')
+    list_filter = ('is_active', 'created_at', 'updated_at')
+    search_fields = ('name', 'email', 'comment')
+    ordering = ('-created_at',)
