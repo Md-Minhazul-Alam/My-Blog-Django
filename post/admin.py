@@ -3,7 +3,6 @@ from .models import Category, Tag, Blog, Social, Page, CategoryBlog, Comment
 from websitesetting.models import Setting 
 
 # Register Category
-
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('category_name', 'category_slug')
     search_fields = ('category_name', 'category_slug')
