@@ -10,7 +10,6 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 
-@cache_page(864000)
 # Home Page
 def home_page(request):
     categoryMenu = Category.objects.all()
@@ -53,7 +52,6 @@ def home_page(request):
         'sliders': sliders, 
     })
 
-@cache_page(864000)
 # Category Page    
 def category_page(request, category_slug):
     # All Categories
@@ -126,7 +124,7 @@ def blog_details(request, blog_slug):
         'most_viewed': most_viewed,
     })
 
-@cache_page(864000)
+@cache_page(60 * 60)
 # Page
 def website_page(request, page_slug):
     # All Categories
