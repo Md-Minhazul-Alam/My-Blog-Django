@@ -30,10 +30,10 @@ SECRET_KEY = 'django-insecure-gy(v$6nn2qc00p+f70g5swsr%@0u+t=z)sb2@6(1ax$g0l2ry8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["minhazul-my-blog.zpos.top"]
+ALLOWED_HOSTS = ["https://minhazulmyblog-2071031bcb58.herokuapp.com/"]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://minhazul-my-blog.zpos.top"
+    "https://minhazulmyblog-2071031bcb58.herokuapp.com/"
 ]
 
 # Application definition
