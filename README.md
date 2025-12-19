@@ -321,6 +321,8 @@ All errors and improvements were logged here, including Django errors, URL misma
 - Deployed on Render.com for testing, but the app may go into sleep mode according to Render policies.  
 - During sleep mode, media files may not be visible until the app wakes up.  
 - Final deployment will be on a proper Python-based hosting for full functionality.
+- Previously, I had deployed my project on my purchased hosting because I was facing issues with Heroku. However, I was unable to submit the assessment using that link. Therefore, I had to redeploy the project on Heroku for the assessment, which required editing several files in the project. Here is the link from the previous deployment for your reference. (Just to inform that assessements are done for this project, this submission is just for the record purpose as guided by the student care)
+- https://minhazul-my-blog.zpos.top/
 
 ### Local vs Deployment
 - Minor differences may exist between the local and deployed versions.
