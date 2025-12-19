@@ -16,6 +16,6 @@ typing_extensions==4.15.0
 tzdata==2025.2
 urllib3==2.5.0
 gunicorn==22.0.0
-whitenoise
+whitenoise==6.11.0
 cloudinary==1.41.0
 django-cloudinary-storage==0.3.0
