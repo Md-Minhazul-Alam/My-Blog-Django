@@ -41,9 +41,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['.herokuapp.com']
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://minhazulmyblog-2071031bcb58.herokuapp.com"
-]
+# CSRF_TRUSTED_ORIGINS = [
+#     "https://minhazulmyblog-2071031bcb58.herokuapp.com"
+# ]
 
 # Application definition
 
