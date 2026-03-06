@@ -43,7 +43,7 @@ The project’s Python code was validated to ensure it follows the **PEP8** styl
 | `frontend`  | `view.py` | ![view.py](/static/pep8/frontendview.PNG) |
 | `frontend`  | `urls.py` | ![urls.py](/static/pep8/frontendurl.PNG) |
 | `post`  | `models.py` | ![models.py](/static/pep8/postmodel.PNG) |
-| `post`  | `admin.py` | ![admin.py](/static/pep8/frontadmin.PNG) |
+| `post`  | `admin.py` | ![admin.py](/static/pep8/postadmin.PNG) |
 
 
 All Python files were checked to confirm they comply with **PEP8 standards**, including:
