@@ -34,6 +34,24 @@ The project’s JavaScript was validated with [JSHint](https://jshint.com/).
 | `templates/pages`          | `blog_detail.html` (inline JavaScript) | ![Comments JS](/static/frontend/testing/comments.png) |  
 
 
+### PEP8 Validation
+
+The project’s Python code was validated to ensure it follows the **PEP8** style guidelines for readability and consistency. Validation was performed using the **PEP8 Online** code checker.
+
+| Location        | File / Module | Screenshot |
+|-----------------|---------------|------------|
+| `frontend`  | `view.py` | ![view.py](/static/pep8/frontendview.PNG) |
+
+
+All Python files were checked to confirm they comply with **PEP8 standards**, including:
+
+- Proper indentation and spacing
+- Correct line length
+- Consistent naming conventions for variables, functions, and classes
+- Removal of unused imports and variables
+
+The results confirmed that the Python codebase follows **PEP8 guidelines**, helping maintain clean, readable, and maintainable code throughout the project.
+
 ---
 
 ## Responsiveness
