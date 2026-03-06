@@ -1,7 +1,7 @@
 from django.views.decorators.cache import cache_page
 from post.models import Category, Social, Blog, Page, CategoryBlog, Comment
 from django.shortcuts import render
-import requests 
+import requests
 from websitesetting.models import Setting
 from django.shortcuts import get_object_or_404, redirect
 from django.db.models import F, Q
@@ -9,6 +9,7 @@ import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
+
 
 # Home Page
 def home_page(request):
@@ -25,7 +26,7 @@ def home_page(request):
     category_sections = []
     category_blogs = CategoryBlog.objects.select_related('category').all()
 
-    for cb in category_blogs: 
+    for cb in category_blogs:
         blogs = list(Blog.objects.filter(
             category=cb.category,
             is_active=True
@@ -36,7 +37,7 @@ def home_page(request):
                 'heading': cb.heading,
                 'category': cb.category,
                 'first_blog': blogs[0],
-                'other_blog': blogs[1:], 
+                'other_blog': blogs[1:],
             })
     # Most Viewed Blogs
     most_viewed = Blog.objects.filter(is_active=True).order_by('-views')[:5]
@@ -47,12 +48,13 @@ def home_page(request):
         'settings': setting,
         'pages': page,
         'editors': editor,
-        'category_sections': category_sections, 
+        'category_sections': category_sections,
         'most_viewed': most_viewed,
-        'sliders': sliders, 
+        'sliders': sliders,
     })
 
-# Category Page    
+
+# Category Page
 def category_page(request, category_slug):
     # All Categories
     categoryMenu = Category.objects.all()
@@ -61,11 +63,13 @@ def category_page(request, category_slug):
     # Website Setting
     setting = Setting.objects.latest('id')
     # Category Blog
-    category = get_object_or_404(Category, category_slug=category_slug, is_active=True)
+    category = get_object_or_404(
+        Category, category_slug=category_slug, is_active=True
+    )
     blogs = Blog.objects.filter(category=category, is_active=True)
     # Page
     page = Page.objects.all
-     # Editor Choice
+    # Editor Choice
     editor = Blog.objects.filter(
         is_active=True,
         is_featured=True,
@@ -84,6 +88,7 @@ def category_page(request, category_slug):
         'category': category,
     })
 
+
 # Blog Details
 def blog_details(request, blog_slug):
     # All Categories
@@ -100,7 +105,7 @@ def blog_details(request, blog_slug):
         is_featured=True,
     )[:6]
     # Blog Details
-    details = get_object_or_404(Blog, blog_slug = blog_slug)
+    details = get_object_or_404(Blog, blog_slug=blog_slug)
     # View Count
     Blog.objects.filter(pk=details.pk).update(views=F('views') + 1)
     details.refresh_from_db()
@@ -111,18 +116,19 @@ def blog_details(request, blog_slug):
     comments = Comment.objects.filter(blog=details, is_active=True)
     # All Tags
     tags = details.tag.all()
-    
+
     return render(request, "pages/blog-details.html", {
         'categories': categoryMenu,
-        'socials': social, 
+        'socials': social,
         'settings': setting,
         'pages': page,
         'editors': editor,
         'blogDetails': details,
         'comments': comments,
-        'tags': tags, 
+        'tags': tags,
         'most_viewed': most_viewed,
     })
+
 
 @cache_page(60 * 60)
 # Page
@@ -137,15 +143,15 @@ def website_page(request, page_slug):
     pageMenu = Page.objects.all
     # Page
     pageDetails = get_object_or_404(Page, page_slug=page_slug)
-    
-    
+
     return render(request, "pages/page.html", {
         'categories': categoryMenu,
-        'socials': social, 
+        'socials': social,
         'settings': setting,
         'pages': pageMenu,
         'pageInfo': pageDetails,
     })
+
 
 # Search Blogs
 def search_list(request):
@@ -166,18 +172,20 @@ def search_list(request):
     blogs = Blog.objects.all()
     if query:
         blogs = blogs.filter(
-            Q(blog_name__icontains=query) | Q(short_description__icontains=query) 
+            Q(blog_name__icontains=query)
+            | Q(short_description__icontains=query)
         )
-    
+
     return render(request, "pages/search.html", {
         'categories': categoryMenu,
-        'socials': social, 
+        'socials': social,
         'settings': setting,
         'pages': pageMenu,
         'editors': editor,
         'most_viewed': most_viewed,
-        'blogs': blogs,    
+        'blogs': blogs,
     })
+
 
 # Add Comment
 def add_comment(request, blog_slug):
@@ -199,6 +207,7 @@ def add_comment(request, blog_slug):
             messages.error(request, 'Please fill all the fields')
     return redirect('blogDetails', blog_slug=blog_slug)
 
+
 # Verify Comment
 @csrf_exempt
 def verify_comment_owner(request):
@@ -207,14 +216,16 @@ def verify_comment_owner(request):
             data = json.loads(request.body.decode('utf-8'))
             comment_id = data.get('comment_id')
             email = data.get('email')
-            
+
             if not comment_id or not email:
                 return JsonResponse({
                     'success': False,
                     'message': 'Comment ID and email are required.'
                 })
-            
-            comment = Comment.objects.get(id=comment_id, email=email, is_active=True)
+
+            comment = Comment.objects.get(
+                id=comment_id, email=email, is_active=True
+            )
             return JsonResponse({
                 'success': True,
                 'comment': {
@@ -239,8 +250,11 @@ def verify_comment_owner(request):
                 'success': False,
                 'message': f'An error occurred: {str(e)}'
             })
-    
-    return JsonResponse({'success': False, 'message': 'Invalid request method.'})
+
+    return JsonResponse(
+        {'success': False, 'message': 'Invalid request method.'}
+    )
+
 
 # Edit Comment
 @csrf_exempt
@@ -251,17 +265,22 @@ def edit_comment(request):
             comment_id = data.get('comment_id')
             email = data.get('email')
             new_comment = data.get('comment')
-            
+
             if not comment_id or not email or not new_comment:
                 return JsonResponse({
                     'success': False,
                     'message': 'All fields are required.'
                 })
-            
-            comment = Comment.objects.get(id=comment_id, email=email, is_active=True)
+
+            comment = Comment.objects.get(
+                id=comment_id, email=email, is_active=True
+            )
             comment.comment = new_comment
             comment.save()
-            return JsonResponse({'success': True, 'message': 'Comment updated successfully!'})
+            return JsonResponse(
+                {'success': True,
+                 'message': 'Comment updated successfully!'}
+            )
         except json.JSONDecodeError:
             return JsonResponse({
                 'success': False,
@@ -277,8 +296,11 @@ def edit_comment(request):
                 'success': False,
                 'message': f'An error occurred: {str(e)}'
             })
-    
-    return JsonResponse({'success': False, 'message': 'Invalid request method.'})
+
+    return JsonResponse(
+        {'success': False, 'message': 'Invalid request method.'}
+    )
+
 
 # Delete Comment
 @csrf_exempt
@@ -288,16 +310,21 @@ def delete_comment(request):
             data = json.loads(request.body.decode('utf-8'))
             comment_id = data.get('comment_id')
             email = data.get('email')
-            
+
             if not comment_id or not email:
                 return JsonResponse({
                     'success': False,
                     'message': 'Comment ID and email are required.'
                 })
-            
-            comment = Comment.objects.get(id=comment_id, email=email, is_active=True)
+
+            comment = Comment.objects.get(
+                id=comment_id, email=email, is_active=True
+            )
             comment.delete()
-            return JsonResponse({'success': True, 'message': 'Comment deleted successfully!'})
+            return JsonResponse(
+                {'success': True,
+                 'message': 'Comment deleted successfully!'}
+            )
         except json.JSONDecodeError:
             return JsonResponse({
                 'success': False,
@@ -313,6 +340,7 @@ def delete_comment(request):
                 'success': False,
                 'message': f'An error occurred: {str(e)}'
             })
-    
-    return JsonResponse({'success': False, 'message': 'Invalid request method.'})
 
+    return JsonResponse(
+        {'success': False, 'message': 'Invalid request method.'}
+    )
