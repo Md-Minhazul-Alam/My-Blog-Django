@@ -41,6 +41,7 @@ The project’s Python code was validated to ensure it follows the **PEP8** styl
 | Location        | File / Module | Screenshot |
 |-----------------|---------------|------------|
 | `frontend`  | `view.py` | ![view.py](/static/pep8/frontendview.PNG) |
+| `frontend`  | `urls.py` | ![urls.py](/static/pep8/frontendurl.PNG) |
 
 
 All Python files were checked to confirm they comply with **PEP8 standards**, including:
