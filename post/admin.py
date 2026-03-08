@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import Category, Tag, Blog, Social, Page, CategoryBlog, Comment
-from websitesetting.models import Setting
 
 
 # Register Category
@@ -47,15 +46,6 @@ class SocialAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Social, SocialAdmin)
-
-
-# Register Website Setting
-class WebsiteSettingAdmin(admin.ModelAdmin):
-    list_display = ('site_name', 'site_meta_keywords')
-    search_fields = ('site_name', 'site_meta_keywords')
-
-
-admin.site.register(Setting, WebsiteSettingAdmin)
 
 
 # Register Page
