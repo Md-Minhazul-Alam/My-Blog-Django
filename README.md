@@ -6,29 +6,29 @@ Developer: Md Minhazul Alam ([Md-Minhazul-Alam](https://github.com/Md-Minhazul-A
 [![GitHub last commit](https://img.shields.io/github/last-commit/Md-Minhazul-Alam/My-Blog-Django)](https://github.com/Md-Minhazul-Alam/My-Blog-Django/commits/master)
 [![GitHub repo size](https://img.shields.io/github/repo-size/Md-Minhazul-Alam/My-Blog-Django)](https://github.com/Md-Minhazul-Alam/My-Blog-Django)
 
-I’m Md Minhazul Alam, and this is my **third project** as part of my journey into **full-stack development programme**.
-The project is an **data-driven blogging platform** developed with **Django (Python)** as the backend and a **responsive frontend** developed in HTML, CSS, Bootstrap and custom JavaScript.
+I'm Md Minhazul Alam, and this is my **third project** as part of my journey into a **data-driven development programme**.
+The project is a **data-driven blogging platform** developed with **Django (Python)** as the backend and a **responsive frontend** built in HTML, CSS, Bootstrap, and custom JavaScript.
 
 It highlights my ability to model, develop CRUD, and map backend code to a clean, user-friendly interface.
-The objective was to be **simple, responsive, and accessible** and show hands-on Python + Django development capability.
+The objective was to be **simple, responsive, and accessible** and to demonstrate hands-on Python + Django development capability.
 
 ---
 
-## The 5 Planes of UX 
+## The 5 Planes of UX
 
 ### 1. Strategy
 **Purpose**  
-This blog site showcases my backend abilities while presenting a responsive, intuitive environment for posting, categorizing, and engaging with blogs.  
+This blog site showcases my backend abilities while providing a responsive, intuitive environment for posting, categorising, and engaging with blogs.
 
 **Primary User Needs**  
 - View blog entries by category or popularity  
 - View posts with images and featured articles  
-- Comment on posts, edit or delete them (if email authenticated)  
+- Comment on posts, and edit or delete them (if email authenticated)  
 
 **Business Goals**  
-- Demonstrate Django development skills
-- Showcase a project that has real world blog features
-- Act as an academic and portfolio piece
+- Demonstrate Django development skills  
+- Showcase a project that has real-world blog features  
+- Act as an academic and portfolio piece  
 
 ---
 
@@ -38,12 +38,12 @@ This blog site showcases my backend abilities while presenting a responsive, int
 - Search modal for quick content search  
 - Social media integration in navbar and footer  
 - Blog slider with recent posts  
-- Category based sections admin select  
+- Category-based sections selected by admin  
 - Editor's choice and most viewed posts sidebar  
 - Full CRUD for posts (admin)  
-- Comment section with Add/edit/delete by user
-- About, Contact Us and Privacy Policy
-- Copyright
+- Comment section with add/edit/delete by user  
+- About, Contact Us, and Privacy Policy pages  
+- Copyright  
 
 **Content Requirements**  
 - Post titles, images, categories, tags  
@@ -57,8 +57,8 @@ This blog site showcases my backend abilities while presenting a responsive, int
 - **Navigation Menu**: Logo (left), categories, search, social icons, mobile sidebar
 - **Homepage**: Slider, latest blogs based on category selection, editor's choice, most viewed
 - **Category Page**: Filtered posts, editor's choice, most viewed
-- **Blog Details**: Post image, body, categories, comments section (Comment form, Edit & Dlete)
-- **Footer**: About us, categories, quick links, social icons and copyright
+- **Blog Details**: Post image, body, categories, comments section (comment form, edit & delete)
+- **Footer**: About us, categories, quick links, social icons, and copyright
 
 **User Flow**
 1. User lands on homepage → browse latest/featured blogs
@@ -71,12 +71,12 @@ This blog site showcases my backend abilities while presenting a responsive, int
 
 ### 4. Skeleton
 Four top-level layouts on the website:
-- **Homepage** → Hero slider, category based blogs, Editor's choice and most viewed content
-- **Category Page** → Posts based on chosen category with sidebar (Most Viewd & Editor Choice)
-- **Blog Details** → Post content with image, comments and Category with most viewed Blog
-- **Pages** → About, Contact Us and Privacy Policy
+- **Homepage** → Hero slider, category-based blogs, editor's choice, and most viewed content
+- **Category Page** → Posts based on chosen category with sidebar (Most Viewed & Editor's Choice)
+- **Blog Details** → Post content with image, comments, and category with most viewed blogs
+- **Pages** → About, Contact Us, and Privacy Policy
 
-User navigation is mobile responsive with sidebar.
+User navigation is mobile responsive with a sidebar.
 
 ---
 
@@ -90,9 +90,9 @@ User navigation is mobile responsive with sidebar.
 
 ### 6. Assets Structure
 **Admin and Frontend**  
-- I have two types of assets in this project. One is for admin and another for frontend. 
-- **Frontend Assets**: Here we have a assets file under fronted includes css, image and js file. 
-- **Reason of Frontend and Admin folder**: I have used two folders Admin and Frontend to clealy separate assets, such as- css, js and image.   
+- There are two types of assets in this project: one for admin and another for the frontend.
+- **Frontend Assets**: There is an assets folder under frontend which includes CSS, image, and JS files.
+- **Reason for Frontend and Admin folders**: Two folders — Admin and Frontend — are used to clearly separate assets such as CSS, JS, and images.
 
 ---
 
@@ -247,7 +247,7 @@ All slug fields (`category_slug`, `tag_slug`, `blog_slug`, `page_slug`) are auto
 
 1. If empty, generated from the name field using `slugify()`.
 2. If already set, re-slugified to normalise casing and special characters.
-3. Uniqueness checked against existing records (excluding current instance).
+3. Uniqueness checked against existing records (excluding the current instance).
 4. If a collision is found, `-1`, `-2`, etc. is appended until unique.
 
 ---
@@ -262,7 +262,7 @@ All slug fields (`category_slug`, `tag_slug`, `blog_slug`, `page_slug`) are auto
 ## Colour Scheme
 - **Primary**: White (#FFFFFF)  
 - **Text**: Black (#000000)  
-- **Accent**: Bootstrap’s default utilities for buttons/alerts
+- **Accent**: Bootstrap's default utilities for buttons/alerts
 
 This keeps the design **clean, accessible, and device-consistent**.
 
@@ -290,10 +290,10 @@ No wireframes were formally designed. Instead, development revolves around direc
 
 ## User Stories
 | Target | Expectation | Outcome |
-| --- | --- | ---
+| --- | --- | --- |
 | As a visitor | I would love to see blogs by category | So that I can easily find blogs of my interest |
-| As a visitor | I woild also like to see most viewed or editor's choice posts | So I can find popular or recommended content
-| As a user | I want to post a comment and have the ability to edit/delete them | So that I can comment on posts in my own name and edit/delete them if requires |
+| As a visitor | I would also like to see most viewed or editor's choice posts | So I can find popular or recommended content |
+| As a user | I want to post a comment and have the ability to edit or delete it | So that I can comment on posts in my own name and manage them if required |
 | As an admin | I want to post, edit, and remove posts | So that I can manage site content effectively |
 
 ---
@@ -305,7 +305,7 @@ No wireframes were formally designed. Instead, development revolves around direc
 | Blog Slider | Displays latest/featured posts with images | ![screenshot](/static/frontend/features/sliders.png) |
 | Category Sections | Admin-controlled category blocks on home page | ![screenshot](/static/frontend/features/category-section.png) |
 | Editor's Choice | Manually chosen featured content | ![screenshot](/static/frontend/features/editors-choice.png) |
-| Most Viewed | Posts sorted by view count | ![screenshot](/static/frontend/features/most-viewed.png)
+| Most Viewed | Posts sorted by view count | ![screenshot](/static/frontend/features/most-viewed.png) |
 | Blog Details | Full page view with comments, related categories, and sidebar | ![screenshot](/static/frontend/features/blog-details.png) |
 | Comment System | Users can add, edit, or delete comments through email verification | ![screenshot](/static/frontend/features/comment-section.png) |
 | Footer | Quick links, about, and social icons included | ![screenshot](/static/frontend/features/footer.png) |
@@ -313,7 +313,7 @@ No wireframes were formally designed. Instead, development revolves around direc
 ---
 
 ## Future Features
-- Dark Mode toggle  
+- Dark mode toggle  
 - User authentication system (login/register)  
 - Tag filtering for blogs  
 - Comment upvote/downvote system  
@@ -332,25 +332,23 @@ No wireframes were formally designed. Instead, development revolves around direc
 | Font Awesome | Icons |
 | [HackMD](https://hackmd.io/) | For README/TESTING documentation |
 
-
 ---
 
 ## Agile Development Process
 
 ### GitHub Projects
-Used for Kanban style task management with epics and issues.
+Used for Kanban-style task management with epics and issues.
 
 ![GitHub Projects](static/frontend/project.PNG)
 
-
 ### GitHub Issues
-All errors and improvements were logged here, including Django errors, URL mismatches, and JavaScript bugs.  
+All errors and improvements were logged here, including Django errors, URL mismatches, and JavaScript bugs.
 
 ### MoSCoW Prioritization
 - **Must Have**: CRUD for posts and comments  
 - **Should Have**: Responsive sidebar and search modal  
 - **Could Have**: Analytics for most viewed posts  
-- **Won’t Have**: User login system (future feature)  
+- **Won't Have**: User login system (future feature)  
 
 ---
 
@@ -439,6 +437,7 @@ This project is deployed on **Heroku**. The following steps were taken to succes
 4. Run:  
    ```bash
    git clone <repository-url>
+   ```
 
 ---
 
@@ -453,13 +452,13 @@ This project is deployed on **Heroku**. The following steps were taken to succes
 
 ### Media
 - [Pexels](https://pexels.com) → Stock images  
-- [BBC](https://bbc.com) → Blog images and Content
-- [Travel to Motom](https://www.traveltomtom.net/) → Blog images and Content
-- [Heather Jasper](https://heatherjasper.com/) → Blog images and Content
+- [BBC](https://bbc.com) → Blog images and content  
+- [Travel to Mtom](https://www.traveltomtom.net/) → Blog images and content  
+- [Heather Jasper](https://heatherjasper.com/) → Blog images and content  
 - [Font Awesome](https://fontawesome.com) → Icons  
 
 ### Acknowledgements
-- Code Institute resources, Slack and Discord community for inspiration.  
+- Code Institute resources, Slack, and Discord community for inspiration.  
 - Online forums for Django troubleshooting.  
 
 ---
