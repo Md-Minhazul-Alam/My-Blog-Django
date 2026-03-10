@@ -360,14 +360,72 @@ All errors and improvements were logged here, including Django errors, URL misma
 
 ---
 
-## Deployment
+## Deployment on Heroku
 
-- Free-tier deployment isn’t available on Heroku, so it wasn’t used.  
-- Deployed on Render.com for testing, but the app may go into sleep mode according to Render policies.  
-- During sleep mode, media files may not be visible until the app wakes up.  
-- Final deployment will be on a proper Python-based hosting for full functionality.
-- Previously, I had deployed my project on my purchased hosting because I was facing issues with Heroku. However, I was unable to submit the assessment using that link. Therefore, I had to redeploy the project on Heroku for the assessment, which required editing several files in the project. Here is the link from the previous deployment for your reference. (Just to inform that assessements are done for this project, this submission is just for the record purpose as guided by the student care)
-- https://minhazul-my-blog.zpos.top/
+This project is deployed on **Heroku**. The following steps were taken to successfully deploy the application.
+
+### Steps
+
+1. **Sign Up**
+   - Created a Heroku account.
+   - Note: Heroku no longer offers a free plan. The **Basic Dyno** plan was selected for this project.
+
+2. **Create Application**
+   - Created a new Heroku app from the Heroku dashboard.
+   - Selected **Europe** as the server region.
+
+3. **Connect to GitHub**
+   - In the deployment options, selected **GitHub** as the deployment method.
+   - Granted Heroku the necessary permissions to access the repository.
+   - Linked the correct repository and branch for deployment.
+
+4. **Configure Environment Variables**
+   - All sensitive settings were added securely via Heroku's **Config Vars** under the app settings.
+   - This ensures that credentials are never exposed in the codebase.
+   - The following environment variables were configured:
+
+     | Variable | Purpose |
+     |----------|---------|
+     | `SECRET_KEY` | Django secret key |
+     | `DATABASE_URL` | PostgreSQL database connection |
+     | `CLOUDINARY_URL` | Cloudinary media storage credentials |
+     | `DEBUG` | Set to `False` for production |
+
+5. **Deploy**
+   - Triggered deployment from the connected GitHub branch.
+   - After resolving several challenges (detailed below), the application was **successfully deployed**. 🎉
+
+---
+
+### Challenges Faced
+
+#### 1. `Pipfile` / `Pipfile.lock` Conflict
+- During development, the project contained a `Pipfile` and `Pipfile.lock`.
+- These files caused Heroku to fail during the build process, as it attempted to use Pipenv instead of pip.
+- **Fix:** Removed both files and relied solely on `requirements.txt` for dependency management.
+
+#### 2. Uvicorn & Procfile Configuration
+- `uvicorn` was installed as the ASGI server, but it did not start automatically on Heroku.
+- Heroku requires an explicit **`Procfile`** in the root of the project to define how the application should be run.
+- A minor mistake in the `Procfile` initially prevented the app from starting correctly.
+- **Fix:** Debugged and corrected the `Procfile`, after which the application deployed successfully.
+
+  **Example `Procfile`:**
+  ```
+  web: gunicorn blog.wsgi
+  ```
+
+#### 3. Dyno Sleep & Lost Media Files
+- On the Basic plan, **Heroku dynos sleep** automatically when there is no incoming traffic for a period of time.
+- Upon restarting, all locally stored **media files are permanently lost**, because Heroku uses an ephemeral filesystem that does not persist between dyno restarts.
+- **Fix:** Integrated **[Cloudinary](https://cloudinary.com/)** as an external media storage service.
+  - Cloudinary provides a **free tier with generous storage limits**, which is sufficient for this demo and academic project.
+  - All uploaded images are now stored on and served from Cloudinary, ensuring they persist regardless of dyno activity.
+
+#### 4. Environment Variables
+- Sensitive settings such as the `SECRET_KEY`, `DATABASE_URL`, and Cloudinary credentials cannot be committed to a public GitHub repository.
+- **Fix:** All environment variables were configured securely using Heroku's **Config Vars** feature, accessible via the app settings panel in the Heroku dashboard.
+- This approach keeps all credentials safe and out of the codebase entirely.
 
 ### Local vs Deployment
 - Minor differences may exist between the local and deployed versions.
